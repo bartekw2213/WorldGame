@@ -1,10 +1,9 @@
 package com.pg.student.stages.initialStage.view;
 
 import com.pg.student.colors.ColorPalette;
-import com.pg.student.stages.Controller;
 import com.pg.student.stages.View;
 import com.pg.student.stages.elements.MyButton;
-import com.pg.student.stages.elements.MyPanel;
+import com.pg.student.stages.elements.MyFlowPanel;
 import com.pg.student.stages.initialStage.controller.InitialController;
 
 import javax.swing.*;
@@ -16,22 +15,16 @@ public class InitialView extends View {
 
     public InitialView() {
         super(1000, 300, Color.decode(ColorPalette.ORANGE));
-        CreateLayout();
-        super.InitFrame();
     }
 
-    private void CreateLayout() {
-        CreateHorizontalPanels();
+    @Override
+    protected void CreateLayout() {
+        super.SetYPadding((int)(frameHeight/4.25));
         CreateButtonsPanel();
     }
 
-    private void CreateHorizontalPanels() {
-        this.add(new MyPanel(frameWidth, 70, mainColor), BorderLayout.NORTH);
-        this.add(new MyPanel(frameWidth, 70, mainColor), BorderLayout.SOUTH);
-    }
-
     private void CreateButtonsPanel() {
-        JPanel buttonsPanel = new MyPanel(frameWidth, frameHeight, mainColor, 50, 0);
+        JPanel buttonsPanel = new MyFlowPanel(frameWidth, frameHeight, mainColor, 50, 0);
 
         CreateButtons(buttonsPanel);
         AttachListenersToButtons();

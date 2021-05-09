@@ -6,7 +6,7 @@ import java.awt.event.WindowEvent;
 
 public abstract class Controller {
     private Program mainProgram;
-    private View view;
+    protected View view;
 
     public Controller(Program mainProgram, View view) {
         this.mainProgram = mainProgram;

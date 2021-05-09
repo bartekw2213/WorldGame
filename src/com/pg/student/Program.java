@@ -1,7 +1,8 @@
 package com.pg.student;
 
 import com.pg.student.stages.Controller;
-import com.pg.student.stages.View;
+import com.pg.student.stages.getInitDataStage.controller.GetInitDataController;
+import com.pg.student.stages.getInitDataStage.view.GetInitDataView;
 import com.pg.student.stages.initialStage.controller.InitialController;
 import com.pg.student.stages.initialStage.view.InitialView;
 
@@ -13,6 +14,8 @@ public class Program {
     public void ReactToStageFinish(Controller controller) {
         if(controller instanceof InitialController)
             HandleInitialStageFinish((InitialController) controller);
+        else if(controller instanceof GetInitDataController)
+            HandleGetInitDataStageFinish((GetInitDataController) controller);
     }
 
     private void HandleInitialStageFinish(InitialController controller) {
@@ -22,13 +25,15 @@ public class Program {
             StartLoadGameStage();
     }
 
+    private void HandleGetInitDataStageFinish(GetInitDataController controller) {
+
+    }
+
     private void StartInitialStage() {
         new InitialController(this, new InitialView());
     }
 
-    private void StartGettingInitialDataStage() {
-        System.out.println("Zaczyna Pobieranie danych od uzytkownika");
-    }
+    private void StartGettingInitialDataStage() { new GetInitDataController(this, new GetInitDataView()); }
 
     private void StartLoadGameStage() {
         System.out.println("Zaczyna wczytywac gre");

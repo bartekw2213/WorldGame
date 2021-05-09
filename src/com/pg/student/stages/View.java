@@ -1,5 +1,7 @@
 package com.pg.student.stages;
 
+import com.pg.student.stages.elements.MyFlowPanel;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,6 +16,8 @@ public abstract class View extends JFrame {
         this.frameHeight = height;
         this.mainColor = color;
         this.setSize(this.frameWidth, this.frameHeight);
+        this.CreateLayout();
+        this.InitFrame();
     }
 
     public void AddController(Controller controller) {
@@ -25,6 +29,13 @@ public abstract class View extends JFrame {
         dispose();
     }
 
+    public void ShowErrorDialog(String errorMessage) {
+        JLabel label = new JLabel(errorMessage);
+        label.setFont(new Font("Segoe UI", Font.BOLD, 26));
+        JOptionPane.showMessageDialog(null, label, "Błąd", JOptionPane.WARNING_MESSAGE);
+
+    }
+
     protected void InitFrame() {
         this.setTitle("World Game");
         this.setLocationRelativeTo(null);
@@ -32,4 +43,11 @@ public abstract class View extends JFrame {
         this.setResizable(false);
         this.setVisible(true);
     }
+
+    protected void SetYPadding(int padding) {
+        this.add(new MyFlowPanel(frameWidth, padding, mainColor), BorderLayout.NORTH);
+        this.add(new MyFlowPanel(frameWidth, padding, mainColor), BorderLayout.SOUTH);
+    }
+
+    protected abstract void CreateLayout();
 }
