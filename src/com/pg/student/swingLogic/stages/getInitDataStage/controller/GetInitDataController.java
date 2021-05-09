@@ -1,9 +1,8 @@
-package com.pg.student.stages.getInitDataStage.controller;
+package com.pg.student.swingLogic.stages.getInitDataStage.controller;
 
 import com.pg.student.Program;
-import com.pg.student.stages.Controller;
-import com.pg.student.stages.View;
-import com.pg.student.stages.getInitDataStage.view.GetInitDataView;
+import com.pg.student.swingLogic.Controller;
+import com.pg.student.swingLogic.View;
 
 public class GetInitDataController extends Controller {
     private int boardSize = 0;

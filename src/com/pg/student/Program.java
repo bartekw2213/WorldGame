@@ -1,10 +1,10 @@
 package com.pg.student;
 
-import com.pg.student.stages.Controller;
-import com.pg.student.stages.getInitDataStage.controller.GetInitDataController;
-import com.pg.student.stages.getInitDataStage.view.GetInitDataView;
-import com.pg.student.stages.initialStage.controller.InitialController;
-import com.pg.student.stages.initialStage.view.InitialView;
+import com.pg.student.swingLogic.Controller;
+import com.pg.student.swingLogic.stages.getInitDataStage.controller.GetInitDataController;
+import com.pg.student.swingLogic.stages.getInitDataStage.view.GetInitDataView;
+import com.pg.student.swingLogic.stages.initialStage.controller.InitialController;
+import com.pg.student.swingLogic.stages.initialStage.view.InitialView;
 
 public class Program {
     public void StartProgram() {

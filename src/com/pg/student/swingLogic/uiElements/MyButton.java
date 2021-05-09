@@ -1,4 +1,4 @@
-package com.pg.student.stages.elements;
+package com.pg.student.swingLogic.uiElements;
 
 import javax.swing.*;
 import java.awt.*;

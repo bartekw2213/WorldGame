@@ -1,4 +1,4 @@
-package com.pg.student.colors;
+package com.pg.student.swingLogic.colors;
 
 public class ColorPalette {
     public static final String LIGHT_BLUE = "#04C4D9";

@@ -1,11 +1,11 @@
-package com.pg.student.stages.initialStage.controller;
+package com.pg.student.swingLogic.stages.initialStage.controller;
 
 import com.pg.student.Program;
-import com.pg.student.stages.Controller;
-import com.pg.student.stages.View;
+import com.pg.student.swingLogic.Controller;
+import com.pg.student.swingLogic.View;
 
 public class InitialController extends Controller {
-    public enum ModesToSelect { NEW_GAME, LOAD_GAME };
+    public enum ModesToSelect { NEW_GAME, LOAD_GAME }
     private ModesToSelect selectedMode;
 
     public InitialController(Program mainProgram, View view) {

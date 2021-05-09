@@ -1,8 +1,6 @@
-package com.pg.student.stages;
+package com.pg.student.swingLogic;
 
 import com.pg.student.Program;
-
-import java.awt.event.WindowEvent;
 
 public abstract class Controller {
     private Program mainProgram;

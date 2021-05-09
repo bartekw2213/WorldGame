@@ -1,6 +1,6 @@
-package com.pg.student.stages;
+package com.pg.student.swingLogic;
 
-import com.pg.student.stages.elements.MyFlowPanel;
+import com.pg.student.swingLogic.uiElements.MyFlowPanel;
 
 import javax.swing.*;
 import java.awt.*;

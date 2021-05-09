@@ -1,11 +1,11 @@
-package com.pg.student.stages.getInitDataStage.view;
+package com.pg.student.swingLogic.stages.getInitDataStage.view;
 
-import com.pg.student.colors.ColorPalette;
-import com.pg.student.stages.View;
-import com.pg.student.stages.elements.MyButton;
-import com.pg.student.stages.elements.MyFlowPanel;
-import com.pg.student.stages.elements.MyTextField;
-import com.pg.student.stages.getInitDataStage.controller.GetInitDataController;
+import com.pg.student.swingLogic.colors.ColorPalette;
+import com.pg.student.swingLogic.View;
+import com.pg.student.swingLogic.uiElements.MyButton;
+import com.pg.student.swingLogic.uiElements.MyFlowPanel;
+import com.pg.student.swingLogic.uiElements.MyTextField;
+import com.pg.student.swingLogic.stages.getInitDataStage.controller.GetInitDataController;
 
 import javax.swing.*;
 import java.awt.*;

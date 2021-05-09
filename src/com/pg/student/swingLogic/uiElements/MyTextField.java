@@ -1,6 +1,4 @@
-package com.pg.student.stages.elements;
-
-import com.pg.student.colors.ColorPalette;
+package com.pg.student.swingLogic.uiElements;
 
 import javax.swing.*;
 import java.awt.*;
