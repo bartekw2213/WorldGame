@@ -1,6 +1,8 @@
 package com.pg.student;
 
 import com.pg.student.swingLogic.Controller;
+import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
+import com.pg.student.swingLogic.stages.gameStage.view.GameView;
 import com.pg.student.swingLogic.stages.getInitDataStage.controller.GetInitDataController;
 import com.pg.student.swingLogic.stages.getInitDataStage.view.GetInitDataView;
 import com.pg.student.swingLogic.stages.initialStage.controller.InitialController;
@@ -26,7 +28,7 @@ public class Program {
     }
 
     private void HandleGetInitDataStageFinish(GetInitDataController controller) {
-
+        StartGameStage(controller.GetBoardSize(), controller.GetOrganismsNum());
     }
 
     private void StartInitialStage() {
@@ -39,8 +41,6 @@ public class Program {
         System.out.println("Zaczyna wczytywac gre");
     }
 
-    private void StartGameStage() {
-
-    }
+    private void StartGameStage(int boardSize, int organismsNum) { new GameController(this, new GameView(), boardSize, organismsNum); }
 
 }

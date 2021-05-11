@@ -1,18 +1,13 @@
 package com.pg.student.swingLogic.uiElements;
 
-import javax.swing.*;
 import java.awt.*;
 
-public class MyFlowPanel extends JPanel {
+public class MyFlowPanel extends MyPanel {
     public MyFlowPanel(int width, int height, Color color) {
-        super();
-        this.setPreferredSize(new Dimension(width, height));
-        this.setBackground(color);
+        super(new FlowLayout(), width, height, color);
     }
 
     public MyFlowPanel(int width, int height, Color color, int widthGap, int heightGap) {
-        super(new FlowLayout(FlowLayout.CENTER, widthGap, heightGap));
-        this.setPreferredSize(new Dimension(width, height));
-        this.setBackground(color);
+        super(new FlowLayout(FlowLayout.CENTER, widthGap, heightGap), width, height, color);
     }
 }
