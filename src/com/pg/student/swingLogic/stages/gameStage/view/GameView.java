@@ -3,6 +3,7 @@ package com.pg.student.swingLogic.stages.gameStage.view;
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.LeftLegendSection;
+import com.pg.student.swingLogic.stages.gameStage.view.elements.RightManualSection;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.TopSection;
 
 import java.awt.*;
@@ -18,6 +19,7 @@ public class GameView extends View {
     protected void CreateLayout() {
         CreateTopSection();
         CreateLeftLegendSection();
+        CreateRightManualSection();
     }
 
     private void CreateTopSection() {
@@ -26,5 +28,9 @@ public class GameView extends View {
 
     private void CreateLeftLegendSection() {
         this.add(new LeftLegendSection(VERTICAL_SECTIONS_WIDTH, mainColor), BorderLayout.WEST);
+    }
+
+    private void CreateRightManualSection() {
+        this.add(new RightManualSection(VERTICAL_SECTIONS_WIDTH, mainColor), BorderLayout.EAST);
     }
 }

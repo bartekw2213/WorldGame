@@ -18,16 +18,16 @@ public class LeftLegendSection extends VerticalSection {
 
     @Override
     protected void AddLabels() {
-        super.AddLabel("Antelopa", "src/com/pg/student/images/antelope.png");
-        super.AddLabel("Jagody", "src/com/pg/student/images/berries.png");
-        super.AddLabel("Barszcz", "src/com/pg/student/images/borsch.png");
-        super.AddLabel("Lis", "src/com/pg/student/images/fox.png");
-        super.AddLabel("Trawa", "src/com/pg/student/images/grass.png");
-        super.AddLabel("Guarana", "src/com/pg/student/images/guarana.png");
-        super.AddLabel("Gracz", "src/com/pg/student/images/player.png");
-        super.AddLabel("Owca", "src/com/pg/student/images/sheep.png");
-        super.AddLabel("Mlecz", "src/com/pg/student/images/sonchus.png");
-        super.AddLabel("Żółw", "src/com/pg/student/images/turtle.png");
-        super.AddLabel("Wilk", "src/com/pg/student/images/wolf.png");
+        super.AddLabel("Antelopa", "src/com/pg/student/images/organisms/antelope.png");
+        super.AddLabel("Jagody", "src/com/pg/student/images/organisms/berries.png");
+        super.AddLabel("Barszcz", "src/com/pg/student/images/organisms/borsch.png");
+        super.AddLabel("Lis", "src/com/pg/student/images/organisms/fox.png");
+        super.AddLabel("Trawa", "src/com/pg/student/images/organisms/grass.png");
+        super.AddLabel("Guarana", "src/com/pg/student/images/organisms/guarana.png");
+        super.AddLabel("Gracz", "src/com/pg/student/images/organisms/player.png");
+        super.AddLabel("Owca", "src/com/pg/student/images/organisms/sheep.png");
+        super.AddLabel("Mlecz", "src/com/pg/student/images/organisms/sonchus.png");
+        super.AddLabel("Żółw", "src/com/pg/student/images/organisms/turtle.png");
+        super.AddLabel("Wilk", "src/com/pg/student/images/organisms/wolf.png");
     }
 }
