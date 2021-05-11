@@ -2,17 +2,16 @@ package com.pg.student.swingLogic.stages.gameStage.view;
 
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
-import com.pg.student.swingLogic.stages.gameStage.view.elements.LeftLegendSection;
-import com.pg.student.swingLogic.stages.gameStage.view.elements.RightManualSection;
-import com.pg.student.swingLogic.stages.gameStage.view.elements.TopSection;
+import com.pg.student.swingLogic.stages.gameStage.view.elements.*;
 
 import java.awt.*;
 
 public class GameView extends View {
-    private final int VERTICAL_SECTIONS_WIDTH = 200;
+    private final int VERTICAL_SECTIONS_WIDTH = 230;
 
     public GameView() {
-        super(1500, 1000, Color.decode(ColorPalette.ORANGE));
+        super(1700, 1200, Color.decode(ColorPalette.ORANGE));
+        this.setResizable(true);
     }
 
     @Override
@@ -20,6 +19,8 @@ public class GameView extends View {
         CreateTopSection();
         CreateLeftLegendSection();
         CreateRightManualSection();
+        CreateBoardSection();
+        CreateBottomLogSection();
     }
 
     private void CreateTopSection() {
@@ -32,5 +33,13 @@ public class GameView extends View {
 
     private void CreateRightManualSection() {
         this.add(new RightManualSection(VERTICAL_SECTIONS_WIDTH, mainColor), BorderLayout.EAST);
+    }
+
+    private void CreateBoardSection() {
+        this.add(new BoardSection(frameWidth, mainColor), BorderLayout.CENTER);
+    }
+
+    private void CreateBottomLogSection() {
+        this.add(new BottomLogSection(frameWidth, mainColor), BorderLayout.SOUTH);
     }
 }

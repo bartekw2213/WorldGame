@@ -9,14 +9,15 @@ import java.awt.*;
 
 public class TopSection extends MyBorderPanel {
     public TopSection(int frameWidth, Color bgColor) {
-        super(frameWidth, 120, bgColor);
+        super(frameWidth, 150, bgColor);
         CreateHeader();
         CreateSignature();
+        CreateBottomPadding(20);
     }
 
     private void CreateHeader() {
-        JPanel headerPanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT * 3/4, PANEL_COLOR);
-        JLabel headerLabel = new MyLabel("World Game", Font.BOLD, PANEL_HEIGHT * 3/5);
+        JPanel headerPanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT /2, PANEL_COLOR);
+        JLabel headerLabel = new MyLabel("World Game", Font.BOLD, PANEL_HEIGHT * 2/5);
         headerPanel.add(headerLabel);
         this.add(headerPanel, BorderLayout.NORTH);
     }
@@ -28,4 +29,7 @@ public class TopSection extends MyBorderPanel {
         this.add(signaturePanel, BorderLayout.SOUTH);
     }
 
+    private void CreateBottomPadding(int padding) {
+        this.setBorder(BorderFactory.createEmptyBorder(0, 0, padding, 0));
+    }
 }
