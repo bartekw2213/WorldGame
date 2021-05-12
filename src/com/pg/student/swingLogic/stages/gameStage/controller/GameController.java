@@ -14,7 +14,7 @@ public class GameController extends Controller implements KeyListener {
     public GameController(Program mainProgram, View view, int boardSize, int organismsNum) {
         super(mainProgram, view);
         view.addKeyListener(this);
-//        this.gameWorld = new World(boardSize, organismsNum);
+        this.gameWorld = new World(boardSize, organismsNum);
     }
 
     @Override

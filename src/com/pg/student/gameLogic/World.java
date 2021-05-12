@@ -14,6 +14,7 @@ public class World {
 
     public World(int worldSize, int initialOrganismsNum) {
         this.worldSize = worldSize;
+        this.allOrganisms = new ArrayList<>(this.worldSize * this.worldSize);
         this.positionsManager = new PositionsManager(allOrganisms, this.worldSize);
         CreateOrganisms(initialOrganismsNum);
     }
@@ -22,7 +23,6 @@ public class World {
         final int plantsNum = (int)((initialOrganismsNum - 1) / (WorldConfig.INITIAL_ANIMALS_TO_PLANTS_RATIO + 1));
         final int animalsNum = initialOrganismsNum - 1 - plantsNum;
         OrganismsFactory factory = new OrganismsFactory();
-        allOrganisms.ensureCapacity(worldSize * worldSize);
 
         factory.AddPlayerToOrganisms(allOrganisms, positionsManager);
         factory.AddRandomPlantsToOrganisms(allOrganisms, plantsNum, positionsManager);
