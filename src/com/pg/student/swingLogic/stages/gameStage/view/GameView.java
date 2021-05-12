@@ -2,6 +2,7 @@ package com.pg.student.swingLogic.stages.gameStage.view;
 
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
+import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.*;
 
 import java.awt.*;
@@ -42,4 +43,6 @@ public class GameView extends View {
     private void CreateBottomLogSection() {
         this.add(new BottomLogSection(frameWidth, mainColor), BorderLayout.SOUTH);
     }
+
+
 }
