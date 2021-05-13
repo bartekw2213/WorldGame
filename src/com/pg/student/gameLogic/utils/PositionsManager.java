@@ -37,4 +37,12 @@ public class PositionsManager {
 
         return foundOrganism;
     }
+
+    public Position FindRandomPositionAroundThisPosition(Position position) {
+        // zawsze zwroc jakas pozycje, nie wazne czy zajeta
+    }
+
+    public Position FindFreePositionAroundThisPosition(Position position) {
+        // zwroc null jesli nie znajdzie
+    }
 }
