@@ -26,11 +26,19 @@ public class GameSection extends MyGridPanel {
     }
 
     public void DrawWorld(ArrayList<String> pathsToImages) {
+        int fieldBorderWidth = 1;
+
         for(String path : pathsToImages) {
-            if(path.isEmpty())
-                this.add(new MyLabel());
-            else
-                this.add(new MyIconLabel("", 40, path));
+            if(path.isEmpty()) {
+                MyLabel emptyField = new MyLabel();
+                emptyField.AddBorder(Color.decode(ColorPalette.RED), fieldBorderWidth);
+                this.add(emptyField);
+            } else {
+                MyLabel organismField = new MyIconLabel("", 40, path);
+                organismField.AddBorder(Color.decode(ColorPalette.RED), fieldBorderWidth);
+                organismField.setHorizontalAlignment(SwingConstants.CENTER);
+                this.add(organismField);
+            }
         }
     }
 }
