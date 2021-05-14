@@ -28,6 +28,14 @@ public abstract class Organism {
 
     public String GetOrganismImgPath() { return pathToImage; }
 
+    public int GetAge() {
+        return age;
+    }
+
+    public int GetInitiative() {
+        return initiative;
+    }
+
     public void IncrementAge() { this.age++; }
 
     public abstract void Action();

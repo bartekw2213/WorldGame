@@ -27,6 +27,7 @@ public class GameSection extends MyGridPanel {
 
     public void DrawWorld(ArrayList<String> pathsToImages) {
         int fieldBorderWidth = 1;
+        this.removeAll();
 
         for(String path : pathsToImages) {
             if(path.isEmpty()) {
@@ -40,5 +41,8 @@ public class GameSection extends MyGridPanel {
                 this.add(organismField);
             }
         }
+
+        this.revalidate();
+        this.repaint();
     }
 }
