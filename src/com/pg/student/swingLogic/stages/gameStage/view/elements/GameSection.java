@@ -31,11 +31,11 @@ public class GameSection extends MyGridPanel {
         for(String path : pathsToImages) {
             if(path.isEmpty()) {
                 MyLabel emptyField = new MyLabel();
-                emptyField.AddBorder(Color.decode(ColorPalette.RED), fieldBorderWidth);
+                emptyField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
                 this.add(emptyField);
             } else {
                 MyLabel organismField = new MyIconLabel("", 40, path);
-                organismField.AddBorder(Color.decode(ColorPalette.RED), fieldBorderWidth);
+                organismField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
                 organismField.setHorizontalAlignment(SwingConstants.CENTER);
                 this.add(organismField);
             }

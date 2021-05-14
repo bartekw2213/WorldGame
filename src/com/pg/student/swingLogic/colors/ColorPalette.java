@@ -5,5 +5,6 @@ public class ColorPalette {
     public static final String DARK_GREEN = "#09964B";
     public static final String YELLOW = "#F2E749";
     public static final String ORANGE = "#F28D35";
+    public static final String DARK_ORANGE = "#D66C0F";
     public static final String RED = "#D93829";
 }
