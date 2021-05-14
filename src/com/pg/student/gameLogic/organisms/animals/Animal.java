@@ -8,8 +8,8 @@ import com.pg.student.gameLogic.utils.Position;
 public abstract class Animal extends Organism {
     protected Position lastPosition;
 
-    public Animal(Position organismPosition, int initiative, int power, String name, World world) {
-        super(organismPosition, initiative, power, name, world);
+    public Animal(Position organismPosition, int initiative, int power, String name, String pathToImage, World world) {
+        super(organismPosition, initiative, power, name, pathToImage, world);
         this.lastPosition = organismPosition;
     }
 

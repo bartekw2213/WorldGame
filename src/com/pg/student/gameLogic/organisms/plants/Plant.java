@@ -8,8 +8,8 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 import java.util.Random;
 
 public abstract class Plant extends Organism {
-    public Plant(Position organismPosition, int initiative, int power, String name, World world) {
-        super(organismPosition, initiative, power, name, world);
+    public Plant(Position organismPosition, int initiative, int power, String name, String pathToImage, World world) {
+        super(organismPosition, initiative, power, name, pathToImage, world);
     }
 
     @Override

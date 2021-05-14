@@ -2,11 +2,9 @@ package com.pg.student.gameLogic;
 
 import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.organisms.OrganismsFactory;
-import com.pg.student.gameLogic.utils.EventLoggingManager;
-import com.pg.student.gameLogic.utils.OrganismsManager;
-import com.pg.student.gameLogic.utils.PositionsManager;
-import com.pg.student.gameLogic.utils.WorldConfig;
+import com.pg.student.gameLogic.utils.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class World {
@@ -14,13 +12,16 @@ public class World {
     private final PositionsManager positionsManager;
     private final OrganismsManager organismsManager;
     private final EventLoggingManager eventLoggingManager;
+    private final WorldImageManager worldImageManager;
     private final ArrayList<Organism> allOrganisms;
+    private WorldConfig.USER_MOVES userMove;
 
     public World(int worldSize, int initialOrganismsNum) {
         this.worldSize = worldSize;
         this.allOrganisms = new ArrayList<>(this.worldSize * this.worldSize);
         this.positionsManager = new PositionsManager(allOrganisms, this.worldSize);
         this.organismsManager = new OrganismsManager(allOrganisms);
+        this.worldImageManager = new WorldImageManager(positionsManager);
         this.eventLoggingManager = new EventLoggingManager();
         CreateOrganisms(initialOrganismsNum);
     }
@@ -35,6 +36,17 @@ public class World {
         factory.AddRandomAnimalsToOrganisms(allOrganisms, animalsNum, this);
     }
 
+    public void TriggerRound() {
+        organismsManager.SortOrganisms();
+        organismsManager.MakeMoveForEveryOrganism();
+    }
+
+    public void SetUserMove(WorldConfig.USER_MOVES userMove) {
+        this.userMove = userMove;
+    }
+
+    public int GetWorldSize() { return this.worldSize; }
+
     public PositionsManager GetPositionsManager() {
         return positionsManager;
     }
@@ -42,4 +54,8 @@ public class World {
     public OrganismsManager GetOrganismsManager() { return organismsManager; }
 
     public EventLoggingManager GetEventLoggingManager() { return eventLoggingManager; }
+
+    public WorldImageManager GetWorldImageManager() { return worldImageManager; }
+
+    public WorldConfig.USER_MOVES GetUserMove() { return userMove; }
 }

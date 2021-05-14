@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Human extends Animal {
     public Human(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.HUMAN_INITIATIVE, WorldConfig.HUMAN_POWER, WorldConfig.HUMAN_NAME, world);
+        super(organismPosition, WorldConfig.HUMAN_INITIATIVE, WorldConfig.HUMAN_POWER, WorldConfig.HUMAN_NAME, WorldConfig.HUMAN_IMG_PATH, world);
     }
 
     @Override

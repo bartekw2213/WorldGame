@@ -8,4 +8,8 @@ public class MyLabel extends JLabel {
         super(text);
         this.setFont(new Font("Segoe UI", fontWeight, fontSize));
     }
+
+    public MyLabel() {
+
+    }
 }

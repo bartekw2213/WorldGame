@@ -1,6 +1,7 @@
 package com.pg.student.gameLogic.utils;
 
 public class WorldConfig {
+    public enum USER_MOVES { UP, DOWN, LEFT, RIGHT, SUPER_POWER }
     public static final double INITIAL_ANIMALS_TO_PLANTS_RATIO = 1.5;
     public static final int ANIMALS_NUM = 5;
     public static final int PLANTS_NUM = 5;
@@ -37,4 +38,16 @@ public class WorldConfig {
     public static final String GRASS_NAME = "Trawa";
     public static final String GUARANA_NAME = "Guarana";
     public static final String SONCHUS_NAME = "Mlecz";
+
+    public static final String ANTELOPE_IMG_PATH = "src/com/pg/student/images/organisms/antelope.png";
+    public static final String BERRY_IMG_PATH = "src/com/pg/student/images/organisms/berry.png";
+    public static final String BORSCH_IMG_PATH = "src/com/pg/student/images/organisms/borsch.png";
+    public static final String FOX_IMG_PATH = "src/com/pg/student/images/organisms/fox.png";
+    public static final String GRASS_IMG_PATH = "src/com/pg/student/images/organisms/grass.png";
+    public static final String GUARANA_IMG_PATH = "src/com/pg/student/images/organisms/guarana.png";
+    public static final String HUMAN_IMG_PATH = "src/com/pg/student/images/organisms/human.png";
+    public static final String SHEEP_IMG_PATH = "src/com/pg/student/images/organisms/sheep.png";
+    public static final String SONCHUS_IMG_PATH = "src/com/pg/student/images/organisms/sonchus.png";
+    public static final String TURTLE_IMG_PATH = "src/com/pg/student/images/organisms/turtle.png";
+    public static final String WOLF_IMG_PATH = "src/com/pg/student/images/organisms/wolf.png";
 }

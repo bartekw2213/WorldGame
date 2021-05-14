@@ -2,8 +2,10 @@ package com.pg.student.swingLogic.stages.gameStage.controller;
 
 import com.pg.student.Program;
 import com.pg.student.gameLogic.World;
+import com.pg.student.gameLogic.utils.WorldConfig;
 import com.pg.student.swingLogic.Controller;
 import com.pg.student.swingLogic.View;
+import com.pg.student.swingLogic.stages.gameStage.view.GameView;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -13,8 +15,14 @@ public class GameController extends Controller implements KeyListener {
 
     public GameController(Program mainProgram, View view, int boardSize, int organismsNum) {
         super(mainProgram, view);
-        view.addKeyListener(this);
         this.gameWorld = new World(boardSize, organismsNum);
+        AddListenerToView();
+        SetWorldDimensions();
+        DrawWorld();
+    }
+
+    private void AddListenerToView() {
+        view.addKeyListener(this);
     }
 
     @Override
@@ -26,12 +34,27 @@ public class GameController extends Controller implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         switch(e.getKeyCode()) {
-            case KeyEvent.VK_RIGHT: System.out.println("Przycisk nacisniety"); break;
-            case KeyEvent.VK_LEFT: System.out.println("Przycisk nacisniety"); break;
-            case KeyEvent.VK_UP: System.out.println("Przycisk nacisniety"); break;
-            case KeyEvent.VK_DOWN: System.out.println("Przycisk nacisniety"); break;
-            case KeyEvent.VK_S: System.out.println("Przycisk nacisniety"); break;
+            case KeyEvent.VK_RIGHT: TriggerWorldRound(WorldConfig.USER_MOVES.RIGHT); break;
+            case KeyEvent.VK_LEFT: TriggerWorldRound(WorldConfig.USER_MOVES.LEFT); break;
+            case KeyEvent.VK_UP: TriggerWorldRound(WorldConfig.USER_MOVES.UP); break;
+            case KeyEvent.VK_DOWN: TriggerWorldRound(WorldConfig.USER_MOVES.DOWN); break;
+            case KeyEvent.VK_S: TriggerWorldRound(WorldConfig.USER_MOVES.SUPER_POWER); break;
         }
     }
+
+    private void TriggerWorldRound(WorldConfig.USER_MOVES userMove) {
+        gameWorld.SetUserMove(userMove);
+        gameWorld.TriggerRound();
+        DrawWorld();
+    }
+
+    private void SetWorldDimensions() {
+        ((GameView)this.view).SetWorldDimensions(gameWorld.GetWorldSize());
+    }
+
+    private void DrawWorld() {
+        ((GameView)this.view).DrawWorld(gameWorld.GetWorldImageManager().GetPathsToImagesForOrganismsOnEachPosition());
+    }
+
 
 }

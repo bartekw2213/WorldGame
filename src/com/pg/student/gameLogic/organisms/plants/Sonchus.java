@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Sonchus extends Plant {
     public Sonchus(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.SONCHUS_POWER, WorldConfig.SONCHUS_NAME, world);
+        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.SONCHUS_POWER, WorldConfig.SONCHUS_NAME, WorldConfig.SONCHUS_IMG_PATH, world);
     }
 
     @Override

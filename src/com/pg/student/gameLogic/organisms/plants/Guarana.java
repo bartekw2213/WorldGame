@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Guarana extends Plant {
     public Guarana(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.GUARANA_POWER, WorldConfig.GUARANA_NAME, world);
+        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.GUARANA_POWER, WorldConfig.GUARANA_NAME, WorldConfig.GUARANA_IMG_PATH, world);
     }
 
     @Override

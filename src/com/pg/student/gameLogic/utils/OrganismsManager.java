@@ -18,4 +18,12 @@ public class OrganismsManager {
     public void AddOrganism(Organism organism) {
 
     }
+
+    public void SortOrganisms() {
+
+    }
+
+    public void MakeMoveForEveryOrganism() {
+
+    }
 }

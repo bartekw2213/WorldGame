@@ -6,7 +6,8 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Antelope extends Animal {
     public Antelope(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.ANTELOPE_INITIATIVE, WorldConfig.ANTELOPE_POWER, WorldConfig.ANTELOPE_NAME, world);
+        super(organismPosition, WorldConfig.ANTELOPE_INITIATIVE, WorldConfig.ANTELOPE_POWER, WorldConfig.ANTELOPE_NAME,
+                WorldConfig.ANTELOPE_IMG_PATH, world);
     }
 
     @Override
