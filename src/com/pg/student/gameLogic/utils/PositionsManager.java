@@ -34,7 +34,7 @@ public class PositionsManager {
 
         for(int i = 0; i < worldSize; i++) {
             for(int j = 0; j < worldSize; j++)
-                returnedArray.add(FindOrganismOnThisPosition(new Position(i, j)));
+                returnedArray.add(FindOrganismOnThisPosition(new Position(j, i)));
         }
 
         return returnedArray;
@@ -84,8 +84,8 @@ public class PositionsManager {
         return freePosition;
     }
 
-    private boolean IsThisPositionWithinGameBounds(Position position) {
-        return position.GetX() >= 0 || position.GetY() >= 0 || position.GetX() < worldSize || position.GetY() < worldSize;
+    public boolean IsThisPositionWithinGameBounds(Position position) {
+        return position.GetX() >= 0 && position.GetY() >= 0 && position.GetX() < worldSize && position.GetY() < worldSize;
     }
 
     private class PositionsAroundOnePoint {

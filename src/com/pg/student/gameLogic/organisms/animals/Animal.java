@@ -28,11 +28,15 @@ public abstract class Animal extends Organism {
             CollisionWithAnimal((Animal) otherOrganism);
     }
 
-    private void Move() {
+    protected void Move() {
         Position newPosition = world.GetPositionsManager().FindRandomPositionAroundThisPosition(organismPosition);
+        Move(newPosition);
+    }
+
+    protected void Move(Position newPosition) {
         Organism organismOnNewPosition = world.GetPositionsManager().FindOrganismOnThisPosition(newPosition);
 
-        if(newPosition != null) {
+        if(newPosition != null && world.GetPositionsManager().IsThisPositionWithinGameBounds(newPosition)) {
             lastPosition = organismPosition;
             organismPosition = newPosition;
         }
