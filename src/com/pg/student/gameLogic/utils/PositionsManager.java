@@ -8,8 +8,9 @@ import java.util.Random;
 public class PositionsManager {
     private final ArrayList<Organism> organisms;
     private final int worldSize;
-    private final int possiblePositionsAroundOnePoint = 8;
-    private final int[][] offsetsAroundOnePoint = {{-1, -1}, {0, -1}, {1, -1}, {1, 0}, {1, 1}, {0, 1}, {-1, 1}, {-1, 0}};
+    private final int attemptsToFindPosition = 20;
+    private final int possiblePositionsAroundOnePoint = 4;
+    private final int[][] offsetsAroundOnePoint = {{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
 
     public PositionsManager(ArrayList<Organism> organisms, int worldSize) {
         this.organisms = organisms;
@@ -52,24 +53,29 @@ public class PositionsManager {
     }
 
     public Position FindRandomPositionAroundThisPosition(Position position) {
-        int randomX, randomY;
+        Position randomPosition = null;
+        PositionsAroundOnePoint positionsAroundOnePoint = new PositionsAroundOnePoint(position);
 
-        do {
-            randomX = position.GetX() + (new Random()).nextInt(3) - 1;
-            randomY = position.GetY() + (new Random()).nextInt(3) - 1;
-        } while(IsThisPositionOutOfBounds(new Position(randomX, randomY)));
+        while(positionsAroundOnePoint.IsAnyPositionLeft()) {
+            Position possiblePosition = positionsAroundOnePoint.GetRandomPosition();
 
-        return new Position(randomX, randomY);
+            if(IsThisPositionWithinGameBounds(possiblePosition)) {
+                randomPosition = possiblePosition;
+                break;
+            }
+        }
+
+        return randomPosition;
     }
 
     public Position FindFreePositionAroundThisPosition(Position position) {
         Position freePosition = null;
+        PositionsAroundOnePoint positionsAroundOnePoint = new PositionsAroundOnePoint(position);
 
-        for(int i = 0; i < possiblePositionsAroundOnePoint; i++) {
-            Position possiblePosition = new Position(position.GetX() + offsetsAroundOnePoint[i][0],
-                    position.GetY() + offsetsAroundOnePoint[i][1]);
+        while(positionsAroundOnePoint.IsAnyPositionLeft()) {
+            Position possiblePosition = positionsAroundOnePoint.GetRandomPosition();
 
-            if(!IsThisPositionOutOfBounds(possiblePosition) && FindOrganismOnThisPosition(possiblePosition) == null) {
+            if(IsThisPositionWithinGameBounds(possiblePosition) && FindOrganismOnThisPosition(possiblePosition) == null) {
                 freePosition = possiblePosition;
                 break;
             }
@@ -78,7 +84,33 @@ public class PositionsManager {
         return freePosition;
     }
 
-    private boolean IsThisPositionOutOfBounds(Position position) {
-        return position.GetX() < 0 || position.GetY() < 0 || position.GetX() >= worldSize || position.GetY() >= worldSize;
+    private boolean IsThisPositionWithinGameBounds(Position position) {
+        return position.GetX() >= 0 || position.GetY() >= 0 || position.GetX() < worldSize || position.GetY() < worldSize;
+    }
+
+    private class PositionsAroundOnePoint {
+        private final ArrayList<Position> possiblePossitions;
+
+        public PositionsAroundOnePoint(Position position) {
+            this.possiblePossitions = new ArrayList<>(4);
+            this.possiblePossitions.add(new Position(position.GetX(), position.GetY() - 1));
+            this.possiblePossitions.add(new Position(position.GetX(), position.GetY() + 1));
+            this.possiblePossitions.add(new Position(position.GetX() + 1, position.GetY()));
+            this.possiblePossitions.add(new Position(position.GetX() - 1, position.GetY()));
+        }
+
+        public Position GetRandomPosition() {
+            int randomNumber = (new Random()).nextInt(possiblePossitions.size());
+            Position possiblePosition = possiblePossitions.get(randomNumber);
+            int randomPositionX = possiblePosition.GetX();
+            int randomPositionY = possiblePosition.GetY();
+
+            possiblePossitions.remove(possiblePosition);
+            return new Position(randomPositionX, randomPositionY);
+        }
+
+        public boolean IsAnyPositionLeft() {
+            return this.possiblePossitions.size() > 0;
+        }
     }
 }
