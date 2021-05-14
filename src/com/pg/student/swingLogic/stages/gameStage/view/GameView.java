@@ -12,7 +12,7 @@ public class GameView extends View {
     private GameSection gameSection;
 
     public GameView() {
-        super(1700, 1200, Color.decode(ColorPalette.ORANGE));
+        super(1700, 1500, Color.decode(ColorPalette.ORANGE));
         this.setResizable(true);
     }
 
