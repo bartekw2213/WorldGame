@@ -18,7 +18,7 @@ public class GameController extends Controller implements KeyListener {
         this.gameWorld = new World(boardSize, organismsNum);
         AddListenerToView();
         SetWorldDimensions();
-        DrawWorld();
+        DrawGame();
     }
 
     private void AddListenerToView() {
@@ -45,15 +45,16 @@ public class GameController extends Controller implements KeyListener {
     private void TriggerWorldRound(WorldConfig.USER_MOVES userMove) {
         gameWorld.SetUserMove(userMove);
         gameWorld.TriggerRound();
-        DrawWorld();
+        DrawGame();
     }
 
     private void SetWorldDimensions() {
         ((GameView)this.view).SetWorldDimensions(gameWorld.GetWorldSize());
     }
 
-    private void DrawWorld() {
+    private void DrawGame() {
         ((GameView)this.view).DrawWorld(gameWorld.GetWorldImageManager().GetPathsToImagesForOrganismsOnEachPosition());
+        ((GameView)this.view).DrawEventsLogs(gameWorld.GetEventLoggingManager().GetEvents());
     }
 
 

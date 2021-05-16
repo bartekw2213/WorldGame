@@ -32,8 +32,11 @@ public class OrganismsManager {
     }
 
     public void MakeMoveForEveryOrganism() {
-        for(Organism organism : organisms)
+        for(Organism organism : organisms) {
+            organism.IncrementAge();
             organism.Action();
+        }
+
         AddNewBornOrganismsToGame();
         RemoveDeadOrganismsFromGame();
     }

@@ -11,11 +11,18 @@ public class EventLoggingManager {
         this.events = new ArrayList<>();
     }
 
-    public void ReportDeathAfterFightWith(Organism deadOrganism, Organism winner) {
-
+    public void ReportDeathAfterFightWith(String deadOrganismName, String winnerName) {
+        events.add(winnerName + " zabił\\a " + deadOrganismName);
     }
 
-    public void ReportAboutNewOrganism(String organismName) {
+    public void ReportAboutNewOrganism(String name) {
+        events.add("Urodził\\a się " + name);
+    }
 
+    public ArrayList<String> GetEvents() {
+        ArrayList<String> eventsCopy = new ArrayList<>(events.size());
+        eventsCopy.addAll(events);
+        events.clear();
+        return eventsCopy;
     }
 }

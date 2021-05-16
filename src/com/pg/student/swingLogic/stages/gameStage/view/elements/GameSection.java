@@ -42,7 +42,6 @@ public class GameSection extends MyGridPanel {
             }
         }
 
-        this.revalidate();
-        this.repaint();
+        RefreshPanel();
     }
 }

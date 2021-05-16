@@ -17,4 +17,9 @@ abstract class MyPanel extends JPanel {
         this.setPreferredSize(new Dimension(this.PANEL_WIDTH, this.PANEL_HEIGHT));
         this.setBackground(this.PANEL_COLOR);
     }
+
+    public void RefreshPanel() {
+        this.revalidate();
+        this.repaint();
+    }
 }

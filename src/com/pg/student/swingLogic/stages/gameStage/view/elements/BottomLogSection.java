@@ -1,11 +1,73 @@
 package com.pg.student.swingLogic.stages.gameStage.view.elements;
 
+import com.pg.student.swingLogic.uiElements.MyBorderPanel;
 import com.pg.student.swingLogic.uiElements.MyFlowPanel;
+import com.pg.student.swingLogic.uiElements.MyLabel;
 
+import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class BottomLogSection extends MyFlowPanel {
-    public BottomLogSection(int width, Color color) {
-        super(width, 250, color);
+//public class BottomLogSection extends MyFlowPanel {
+//    public BottomLogSection(Color color, int xPadding, int yPadding) {
+//        super(width, 250, color, FlowLayout.LEFT, 40, 30);
+//    }
+//
+//    public void LogEvents(ArrayList<String> events) {
+//        this.removeAll();
+//        RefreshPanel();
+//
+//        for(String event : events)
+//            this.add(new EventLabel(event));
+//
+//        RefreshPanel();
+//    }
+//
+//    private class EventLabel extends MyLabel {
+//        public EventLabel(String text) {
+//            super(text, Font.PLAIN, 24);
+//        }
+//    }
+//
+//}
+
+public class BottomLogSection extends MyBorderPanel {
+    private MyFlowPanel logsPanel;
+    private final int eventsWidthGap = 30;
+    private final int eventsHeightGap = 30;
+
+    public BottomLogSection(int width, int height, Color color, int xPadding, int yPadding) {
+        super(width, height, color);
+        MakePadding(xPadding, yPadding);
+        CreateLogPanel();
     }
+
+    public void MakePadding(int xPadding, int yPadding) {
+        this.add(new MyFlowPanel(xPadding, PANEL_HEIGHT, PANEL_COLOR), BorderLayout.WEST);
+        this.add(new MyFlowPanel(xPadding, PANEL_HEIGHT, PANEL_COLOR), BorderLayout.EAST);
+        this.add(new MyFlowPanel(PANEL_WIDTH, yPadding, PANEL_COLOR), BorderLayout.NORTH);
+        this.add(new MyFlowPanel(PANEL_WIDTH, yPadding, PANEL_COLOR), BorderLayout.SOUTH);
+    }
+
+    public void CreateLogPanel() {
+        this.logsPanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT, PANEL_COLOR, FlowLayout.LEFT, eventsWidthGap, eventsHeightGap);
+        this.add(this.logsPanel, BorderLayout.CENTER);
+    }
+
+    public void LogEvents(ArrayList<String> events) {
+        logsPanel.removeAll();
+        logsPanel.RefreshPanel();
+
+        for(String event : events)
+            logsPanel.add(new EventLabel(event));
+
+        logsPanel.RefreshPanel();
+    }
+
+    private class EventLabel extends MyLabel {
+        public EventLabel(String text) {
+            super(text, Font.BOLD, 20);
+        }
+    }
+
 }

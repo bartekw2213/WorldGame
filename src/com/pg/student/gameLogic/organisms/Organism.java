@@ -28,13 +28,11 @@ public abstract class Organism {
 
     public String GetOrganismImgPath() { return pathToImage; }
 
-    public int GetAge() {
-        return age;
-    }
+    public int GetAge() { return age; }
 
-    public int GetInitiative() {
-        return initiative;
-    }
+    public int GetInitiative() { return initiative; }
+
+    public String GetName() { return name; }
 
     public void IncrementAge() { this.age++; }
 
@@ -47,10 +45,10 @@ public abstract class Organism {
     protected void FightAggressorVersusDefender(Organism aggressor, Organism defender) {
         if(aggressor.power < defender.power) {
             world.GetOrganismsManager().KillOrganism(aggressor);
-            world.GetEventLoggingManager().ReportDeathAfterFightWith(aggressor, defender);
+            world.GetEventLoggingManager().ReportDeathAfterFightWith(aggressor.GetName(), defender.GetName());
         } else {
             world.GetOrganismsManager().KillOrganism(defender);
-            world.GetEventLoggingManager().ReportDeathAfterFightWith(defender, aggressor);
+            world.GetEventLoggingManager().ReportDeathAfterFightWith(defender.GetName(), aggressor.GetName());
         }
     }
 

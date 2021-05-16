@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class GameView extends View {
     private final int VERTICAL_SECTIONS_WIDTH = 230;
     private GameSection gameSection;
+    private BottomLogSection logSection;
 
     public GameView() {
         super(1700, 1500, Color.decode(ColorPalette.ORANGE));
@@ -39,11 +40,12 @@ public class GameView extends View {
 
     private void CreateGameSection() {
         this.gameSection = new GameSection(frameWidth, mainColor);
-        this.add(gameSection, BorderLayout.CENTER);
+        this.add(this.gameSection, BorderLayout.CENTER);
     }
 
     private void CreateBottomLogSection() {
-        this.add(new BottomLogSection(frameWidth, mainColor), BorderLayout.SOUTH);
+        logSection = new BottomLogSection(frameWidth, 200, mainColor, VERTICAL_SECTIONS_WIDTH, 20);
+        this.add(this.logSection, BorderLayout.SOUTH);
     }
 
     public void SetWorldDimensions(int worldSize) {
@@ -52,5 +54,9 @@ public class GameView extends View {
 
     public void DrawWorld(ArrayList<String> pathsToImages) {
         this.gameSection.DrawWorld(pathsToImages);
+    }
+
+    public void DrawEventsLogs(ArrayList<String> events) {
+        this.logSection.LogEvents(events);
     }
 }
