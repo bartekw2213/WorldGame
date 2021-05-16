@@ -8,9 +8,6 @@ import java.util.Random;
 public class PositionsManager {
     private final ArrayList<Organism> organisms;
     private final int worldSize;
-    private final int attemptsToFindPosition = 20;
-    private final int possiblePositionsAroundOnePoint = 4;
-    private final int[][] offsetsAroundOnePoint = {{0, -1}, {1, 0}, {0, 1}, {-1, 0}};
 
     public PositionsManager(ArrayList<Organism> organisms, int worldSize) {
         this.organisms = organisms;
