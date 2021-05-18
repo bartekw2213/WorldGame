@@ -14,7 +14,7 @@ public class InitialView extends View {
     private JButton loadGameButton = null;
 
     public InitialView() {
-        super(1000, 300, Color.decode(ColorPalette.ORANGE));
+        super(0.4, 0.2, Color.decode(ColorPalette.ORANGE));
     }
 
     @Override
@@ -24,7 +24,7 @@ public class InitialView extends View {
     }
 
     private void CreateButtonsPanel() {
-        JPanel buttonsPanel = new MyFlowPanel(frameWidth, frameHeight, mainColor, 50, 0);
+        JPanel buttonsPanel = new MyFlowPanel(frameWidth, frameHeight, mainColor, (int)(frameWidth * 0.1), 0);
 
         CreateButtons(buttonsPanel);
         AttachListenersToButtons();
@@ -33,10 +33,8 @@ public class InitialView extends View {
     }
 
     private void CreateButtons(JPanel buttonsPanel) {
-        this.newGameButton = new MyButton("Nowa Gra", 300, 80, Color.decode(ColorPalette.DARK_GREEN),
-                Color.decode(ColorPalette.YELLOW), Font.BOLD, 26);
-        this.loadGameButton = new MyButton("Wczytaj Grę", 300, 80, Color.decode(ColorPalette.DARK_GREEN),
-                Color.decode(ColorPalette.YELLOW), Font.BOLD, 26);
+        this.newGameButton = new InitialViewButton("Nowa Gra");
+        this.loadGameButton = new InitialViewButton("Wczytaj Grę");
         buttonsPanel.add(newGameButton);
         buttonsPanel.add(loadGameButton);
     }
@@ -44,6 +42,13 @@ public class InitialView extends View {
     private void AttachListenersToButtons() {
         this.newGameButton.addActionListener(e -> ((InitialController)controller).InformAboutNewGameOption());
         this.loadGameButton.addActionListener(e -> ((InitialController)controller).InformAboutLoadGameOption());
+    }
+
+    private class InitialViewButton extends MyButton {
+        public InitialViewButton(String text) {
+            super(text, (int)(frameWidth * 0.3), (int)(frameHeight * 0.3), Color.decode(ColorPalette.DARK_GREEN),
+                    Color.decode(ColorPalette.YELLOW), Font.BOLD, (int)(frameHeight * 0.1));
+        }
     }
 
 }

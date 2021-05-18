@@ -10,10 +10,12 @@ public abstract class View extends JFrame {
     protected final int frameWidth;
     protected final int frameHeight;
     protected final Color mainColor;
+    protected final Dimension screenDimension;
 
-    public View(int width, int height, Color color) {
-        this.frameWidth = width;
-        this.frameHeight = height;
+    public View(double frameWidthToScreenWidth, double frameHeightToScreenHeight, Color color) {
+        this.screenDimension = Toolkit.getDefaultToolkit().getScreenSize();
+        this.frameWidth = (int)(frameWidthToScreenWidth * this.screenDimension.width);
+        this.frameHeight = (int)(frameHeightToScreenHeight * this.screenDimension.height);
         this.mainColor = color;
         this.setSize(this.frameWidth, this.frameHeight);
         this.CreateLayout();
