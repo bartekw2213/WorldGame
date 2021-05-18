@@ -4,6 +4,7 @@ import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
@@ -53,8 +54,8 @@ public class GameView extends View {
         this.gameSection.SetWorldSize(worldSize);
     }
 
-    public void DrawWorld(ArrayList<String> pathsToImages) {
-        this.gameSection.DrawWorld(pathsToImages);
+    public void DrawWorld(ArrayList<ImageIcon> images) {
+        this.gameSection.DrawWorld(images);
     }
 
     public void DrawEventsLogs(ArrayList<String> events) {

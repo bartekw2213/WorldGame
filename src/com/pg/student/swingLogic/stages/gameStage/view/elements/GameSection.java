@@ -23,17 +23,17 @@ public class GameSection extends MyGridPanel {
         this.setLayout(new GridLayout(worldSize, worldSize));
     }
 
-    public void DrawWorld(ArrayList<String> pathsToImages) {
+    public void DrawWorld(ArrayList<ImageIcon> images) {
         int fieldBorderWidth = 1;
         this.removeAll();
 
-        for(String path : pathsToImages) {
-            if(path.isEmpty()) {
+        for(ImageIcon image : images) {
+            if(image == null) {
                 MyLabel emptyField = new MyLabel();
                 emptyField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
                 this.add(emptyField);
             } else {
-                MyLabel organismField = new MyIconLabel("", (int)(PANEL_WIDTH * 0.03), path, 0);
+                MyLabel organismField = new MyIconLabel(image);
                 organismField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
                 organismField.setHorizontalAlignment(SwingConstants.CENTER);
                 this.add(organismField);

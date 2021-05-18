@@ -16,12 +16,12 @@ public class World {
     private final ArrayList<Organism> allOrganisms;
     private WorldConfig.USER_MOVES userMove;
 
-    public World(int worldSize, int initialOrganismsNum) {
+    public World(int worldSize, int initialOrganismsNum, int frameWidth) {
         this.worldSize = worldSize;
         this.allOrganisms = new ArrayList<>(this.worldSize * this.worldSize);
         this.positionsManager = new PositionsManager(allOrganisms, this.worldSize);
         this.organismsManager = new OrganismsManager(allOrganisms);
-        this.worldImageManager = new WorldImageManager(positionsManager);
+        this.worldImageManager = new WorldImageManager(positionsManager, frameWidth);
         this.eventLoggingManager = new EventLoggingManager();
         CreateOrganisms(initialOrganismsNum);
     }

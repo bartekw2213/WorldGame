@@ -13,10 +13,19 @@ public class MyIconLabel extends MyLabel{
     public MyIconLabel(String text, int iconSize, String imgPath, int fontSize) {
         super(text, Font.PLAIN, fontSize);
         this.ICON_SIZE = iconSize;
-        SetImage(imgPath);
+        ResizeAndSetImage(imgPath);
     }
 
-    private void SetImage(String imgPath) {
+    public MyIconLabel(ImageIcon image) {
+        this.ICON_SIZE = image.getIconWidth();
+        SetImage(image);
+    }
+
+    private void SetImage(ImageIcon image) {
+        this.setIcon(image);
+    }
+
+    private void ResizeAndSetImage(String imgPath) {
         BufferedImage image = LoadImage(imgPath);
         assert image != null;
         Image resizedImage = GetResizedImage(image);
