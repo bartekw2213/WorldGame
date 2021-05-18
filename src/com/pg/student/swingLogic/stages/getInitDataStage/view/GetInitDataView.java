@@ -16,12 +16,12 @@ public class GetInitDataView extends View {
     private JTextField organismsNumTextField;
 
     public GetInitDataView() {
-        super(500, 600, Color.decode(ColorPalette.ORANGE));
+        super(0.2, 0.4, Color.decode(ColorPalette.ORANGE));
     }
 
     @Override
     protected void CreateLayout() {
-        super.SetYPadding(frameHeight/5);
+        super.SetYPadding(frameHeight/10);
         CreateMainPanel();
         CreateTextFields();
         CreateButton();
@@ -35,26 +35,36 @@ public class GetInitDataView extends View {
     }
 
     private void CreateMainPanel() {
-        this.mainPanel = new MyFlowPanel(frameWidth, frameHeight, mainColor, 10, 10);
+        this.mainPanel = new MyFlowPanel(frameWidth, frameHeight, mainColor, (int)(frameWidth*0.05), (int)(frameHeight*0.05));
         this.add(this.mainPanel, BorderLayout.CENTER);
     }
 
     private void CreateTextFields() {
-        boardSizeTextField = new MyTextField("Wielkość Planszy", 400, 70,
-                Color.decode(ColorPalette.DARK_GREEN), Color.decode(ColorPalette.YELLOW), 26);
-        organismsNumTextField = new MyTextField("Ilość Organizmów", 400, 70,
-                Color.decode(ColorPalette.DARK_GREEN), Color.decode(ColorPalette.YELLOW), 26);
-
+        boardSizeTextField = new GetInitDataTextField("Wielkość Planszy");
+        organismsNumTextField = new GetInitDataTextField("Ilość Organizmów");
         this.mainPanel.add(boardSizeTextField);
         this.mainPanel.add(organismsNumTextField);
     }
 
     private void CreateButton() {
-        JButton button = new MyButton("Dalej", 400, 70, Color.decode(ColorPalette.YELLOW),
-                Color.decode(ColorPalette.DARK_GREEN), Font.PLAIN, 30);
+        JButton button = new GetInitDataButton("Dalej");
         button.addActionListener(e -> ((GetInitDataController)controller).InformAboutInitialGameData(
                 boardSizeTextField.getText(), organismsNumTextField.getText()));
 
         this.mainPanel.add(button);
+    }
+
+    private class GetInitDataTextField extends MyTextField {
+        public GetInitDataTextField(String text) {
+            super(text, (int)(frameWidth * 0.7), (int)(frameHeight * 0.15), Color.decode(ColorPalette.DARK_GREEN),
+                    Color.decode(ColorPalette.YELLOW), (int)(frameHeight * 0.05));
+        }
+    }
+
+    private class GetInitDataButton extends MyButton {
+        public GetInitDataButton(String text) {
+            super(text, (int)(frameWidth * 0.7), (int)(frameHeight * 0.15), Color.decode(ColorPalette.YELLOW),
+                    Color.decode(ColorPalette.DARK_GREEN), Font.PLAIN, (int)(frameHeight * 0.05));
+        }
     }
 }
