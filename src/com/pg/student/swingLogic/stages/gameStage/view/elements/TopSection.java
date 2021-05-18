@@ -9,14 +9,14 @@ import java.awt.*;
 
 public class TopSection extends MyBorderPanel {
     public TopSection(int frameWidth, Color bgColor) {
-        super(frameWidth, 150, bgColor);
+        super(frameWidth, (int)(frameWidth * 0.1), bgColor);
         CreateHeader();
         CreateSignature();
-        CreateBottomPadding(20);
+        CreateBottomPadding((int)(PANEL_HEIGHT * 0.1));
     }
 
     private void CreateHeader() {
-        JPanel headerPanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT /2, PANEL_COLOR);
+        JPanel headerPanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT / 2, PANEL_COLOR);
         JLabel headerLabel = new MyLabel("World Game", Font.BOLD, PANEL_HEIGHT * 2/5);
         headerPanel.add(headerLabel);
         this.add(headerPanel, BorderLayout.NORTH);

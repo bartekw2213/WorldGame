@@ -10,8 +10,8 @@ import java.io.IOException;
 public class MyIconLabel extends MyLabel{
     private final int ICON_SIZE;
 
-    public MyIconLabel(String text, int iconSize, String imgPath) {
-        super(text, Font.PLAIN, 26);
+    public MyIconLabel(String text, int iconSize, String imgPath, int fontSize) {
+        super(text, Font.PLAIN, fontSize);
         this.ICON_SIZE = iconSize;
         SetImage(imgPath);
     }

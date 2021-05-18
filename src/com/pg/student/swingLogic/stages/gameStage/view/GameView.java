@@ -8,12 +8,12 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GameView extends View {
-    private final int VERTICAL_SECTIONS_WIDTH = 230;
+    private final double VERTICAL_SECTION_WIDTH_TO_FRAME_WIDTH = 0.15;
     private GameSection gameSection;
     private BottomLogSection logSection;
 
     public GameView() {
-        super(1700, 1500, Color.decode(ColorPalette.ORANGE));
+        super(0.5, 0.9, Color.decode(ColorPalette.ORANGE));
         this.setResizable(true);
     }
 
@@ -31,11 +31,11 @@ public class GameView extends View {
     }
 
     private void CreateLeftLegendSection() {
-        this.add(new LeftLegendSection(VERTICAL_SECTIONS_WIDTH, mainColor), BorderLayout.WEST);
+        this.add(new LeftLegendSection((int)(frameWidth * VERTICAL_SECTION_WIDTH_TO_FRAME_WIDTH), mainColor), BorderLayout.WEST);
     }
 
     private void CreateRightManualSection() {
-        this.add(new RightManualSection(VERTICAL_SECTIONS_WIDTH, mainColor), BorderLayout.EAST);
+        this.add(new RightManualSection((int)(frameWidth * VERTICAL_SECTION_WIDTH_TO_FRAME_WIDTH), mainColor), BorderLayout.EAST);
     }
 
     private void CreateGameSection() {
@@ -44,7 +44,8 @@ public class GameView extends View {
     }
 
     private void CreateBottomLogSection() {
-        logSection = new BottomLogSection(frameWidth, 200, mainColor, VERTICAL_SECTIONS_WIDTH, 20);
+        logSection = new BottomLogSection(frameWidth, (int)(frameHeight * 0.2), mainColor,
+                (int)(frameWidth * VERTICAL_SECTION_WIDTH_TO_FRAME_WIDTH));
         this.add(this.logSection, BorderLayout.SOUTH);
     }
 

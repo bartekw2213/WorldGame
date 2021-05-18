@@ -11,7 +11,7 @@ abstract class VerticalSection extends MyFlowPanel {
     }
 
     protected void AddLabel(String text, String imgPath) {
-        this.add(new MyIconLabel(text, 60, imgPath));
+        this.add(new MyIconLabel(text, (int)(PANEL_WIDTH * 0.3), imgPath, (int)(PANEL_WIDTH * 0.1)));
     }
 
     protected abstract void AddLabels();

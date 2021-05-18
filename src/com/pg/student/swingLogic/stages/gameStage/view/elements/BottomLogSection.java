@@ -33,24 +33,22 @@ import java.util.ArrayList;
 
 public class BottomLogSection extends MyBorderPanel {
     private MyFlowPanel logsPanel;
-    private final int eventsWidthGap = 30;
-    private final int eventsHeightGap = 30;
 
-    public BottomLogSection(int width, int height, Color color, int xPadding, int yPadding) {
+    public BottomLogSection(int width, int height, Color color, int xPadding) {
         super(width, height, color);
-        MakePadding(xPadding, yPadding);
+        MakePadding(xPadding);
         CreateLogPanel();
     }
 
-    public void MakePadding(int xPadding, int yPadding) {
+    public void MakePadding(int xPadding) {
         this.add(new MyFlowPanel(xPadding, PANEL_HEIGHT, PANEL_COLOR), BorderLayout.WEST);
         this.add(new MyFlowPanel(xPadding, PANEL_HEIGHT, PANEL_COLOR), BorderLayout.EAST);
-        this.add(new MyFlowPanel(PANEL_WIDTH, yPadding, PANEL_COLOR), BorderLayout.NORTH);
-        this.add(new MyFlowPanel(PANEL_WIDTH, yPadding, PANEL_COLOR), BorderLayout.SOUTH);
     }
 
     public void CreateLogPanel() {
-        this.logsPanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT, PANEL_COLOR, FlowLayout.LEFT, eventsWidthGap, eventsHeightGap);
+        final int gridGap = (int)(PANEL_WIDTH * 0.02);
+
+        this.logsPanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT, PANEL_COLOR, FlowLayout.LEFT, gridGap, gridGap);
         this.add(this.logsPanel, BorderLayout.CENTER);
     }
 
@@ -66,7 +64,7 @@ public class BottomLogSection extends MyBorderPanel {
 
     private class EventLabel extends MyLabel {
         public EventLabel(String text) {
-            super(text, Font.BOLD, 20);
+            super(text, Font.PLAIN, (int)(PANEL_HEIGHT * 0.1));
         }
     }
 

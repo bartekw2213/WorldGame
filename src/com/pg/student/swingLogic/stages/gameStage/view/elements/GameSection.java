@@ -8,8 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class GameSection extends MyGridPanel {
-    private final int BORDER_WIDTH = 10;
-    private int worldSize;
+    private final int BORDER_WIDTH = 5;
 
     public GameSection(int frameWidth, Color color) {
         super(frameWidth, 100, color);
@@ -21,7 +20,6 @@ public class GameSection extends MyGridPanel {
     }
 
     public void SetWorldSize(int worldSize) {
-        this.worldSize = worldSize;
         this.setLayout(new GridLayout(worldSize, worldSize));
     }
 
@@ -35,7 +33,7 @@ public class GameSection extends MyGridPanel {
                 emptyField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
                 this.add(emptyField);
             } else {
-                MyLabel organismField = new MyIconLabel("", 40, path);
+                MyLabel organismField = new MyIconLabel("", (int)(PANEL_WIDTH * 0.03), path, 0);
                 organismField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
                 organismField.setHorizontalAlignment(SwingConstants.CENTER);
                 this.add(organismField);
