@@ -39,10 +39,10 @@ public abstract class Animal extends Organism {
         if(newPosition != null && world.GetPositionsManager().IsThisPositionWithinGameBounds(newPosition)) {
             lastPosition = organismPosition;
             organismPosition = newPosition;
-        }
 
-        if(organismOnNewPosition != null)
-            this.Collision(organismOnNewPosition);
+            if(organismOnNewPosition != null)
+                this.Collision(organismOnNewPosition);
+        }
     }
 
     private void CollisionWithAnimal(Animal otherAnimal) {
