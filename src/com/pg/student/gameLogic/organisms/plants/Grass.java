@@ -10,6 +10,12 @@ public class Grass extends Plant{
     }
 
     @Override
+    public void Action() {
+        for(int i = 0; i < 3; i++)
+            super.Action();
+    }
+
+    @Override
     protected void Multiply(Position newPosition) {
         world.GetOrganismsManager().AddOrganism(new Grass(newPosition, world));
     }
