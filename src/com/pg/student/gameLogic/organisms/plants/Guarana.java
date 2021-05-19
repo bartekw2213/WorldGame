@@ -1,6 +1,8 @@
 package com.pg.student.gameLogic.organisms.plants;
 
 import com.pg.student.gameLogic.World;
+import com.pg.student.gameLogic.organisms.Organism;
+import com.pg.student.gameLogic.organisms.animals.Animal;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
@@ -12,5 +14,15 @@ public class Guarana extends Plant {
     @Override
     protected void Multiply(Position newPosition) {
         world.GetOrganismsManager().AddOrganism(new Guarana(newPosition, world));
+    }
+
+    @Override
+    public void Collision(Organism otherOrganism) {
+        if(otherOrganism instanceof Animal) {
+            ((Animal)otherOrganism).IncrementPower(3);
+            world.GetEventLoggingManager().ReportAboutGuaranaEffect(otherOrganism.GetName());
+        }
+
+        super.Collision(otherOrganism);
     }
 }

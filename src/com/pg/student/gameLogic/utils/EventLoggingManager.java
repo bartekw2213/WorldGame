@@ -35,6 +35,12 @@ public class EventLoggingManager {
             events.add(event);
     }
 
+    public void ReportAboutGuaranaEffect(String nameOfEatingAnimal) {
+        String event = "Guarana wzmacnia " + nameOfEatingAnimal;
+        if(!events.contains(event))
+            events.add(event);
+    }
+
     public ArrayList<String> GetEvents() {
         ArrayList<String> eventsCopy = new ArrayList<>(events.size());
         eventsCopy.addAll(events);

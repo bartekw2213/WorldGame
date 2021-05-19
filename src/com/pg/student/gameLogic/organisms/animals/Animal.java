@@ -25,7 +25,11 @@ public abstract class Animal extends Organism {
         Collision(otherOrganism, true);
     }
 
-    public void Collision(Organism otherOrganism, boolean isAggressor) {
+    public void IncrementPower(int increment) {
+        this.power += increment;
+    }
+
+    protected void Collision(Organism otherOrganism, boolean isAggressor) {
         if(otherOrganism instanceof Plant)
             otherOrganism.Collision(this);
         else if(otherOrganism instanceof Animal)
