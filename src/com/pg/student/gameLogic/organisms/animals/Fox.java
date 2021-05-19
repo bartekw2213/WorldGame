@@ -12,7 +12,7 @@ public class Fox extends Animal {
 
     @Override
     protected boolean IsTheSameType(Animal otherAnimal) {
-        return false;
+        return otherAnimal instanceof Fox;
     }
 
     @Override

@@ -11,7 +11,7 @@ public class Turtle extends Animal {
 
     @Override
     protected boolean IsTheSameType(Animal otherAnimal) {
-        return false;
+        return otherAnimal instanceof Turtle;
     }
 
     @Override

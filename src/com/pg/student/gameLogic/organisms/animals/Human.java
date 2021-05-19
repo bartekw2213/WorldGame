@@ -18,9 +18,7 @@ public class Human extends Animal {
     }
 
     @Override
-    protected void Multiply(Position newPosition) {
-
-    }
+    protected void Multiply(Position newPosition) { }
 
     @Override
     public void Action() {
