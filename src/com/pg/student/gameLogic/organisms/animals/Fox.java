@@ -18,4 +18,11 @@ public class Fox extends Animal {
     protected void Multiply(Position newPosition) {
         world.GetOrganismsManager().AddOrganism(new Fox(newPosition, world));
     }
+
+    @Override
+    protected void Move() {
+        Position newPosition = world.GetPositionsManager().FindFreePositionAroundThisPosition(organismPosition);
+        if(newPosition != null)
+            super.Move(newPosition);
+    }
 }
