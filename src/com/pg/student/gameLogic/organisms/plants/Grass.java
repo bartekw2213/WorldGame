@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Grass extends Plant{
     public Grass(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.GRASS_POWER, WorldConfig.GRASS_NAME, WorldConfig.GRASS_IMG_PATH, world);
+        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.GRASS_POWER, WorldConfig.GRASS_NAME, world);
     }
 
     @Override

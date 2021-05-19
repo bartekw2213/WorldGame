@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Wolf extends Animal {
     public Wolf(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.WOLF_INITIATIVE, WorldConfig.WOLF_POWER, WorldConfig.WOLF_NAME, WorldConfig.WOLF_IMG_PATH, world);
+        super(organismPosition, WorldConfig.WOLF_INITIATIVE, WorldConfig.WOLF_POWER, WorldConfig.WOLF_NAME, world);
     }
 
     @Override

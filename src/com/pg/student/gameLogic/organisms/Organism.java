@@ -8,16 +8,14 @@ public abstract class Organism {
     protected final World world;
     protected final int initiative;
     protected final String name;
-    protected final String pathToImage;
     protected int power;
     protected int age;
 
-    public Organism(Position organismPosition, int initiative, int power, String name, String pathToImage, World world) {
+    public Organism(Position organismPosition, int initiative, int power, String name, World world) {
         this.organismPosition = organismPosition;
         this.world = world;
         this.initiative = initiative;
         this.name = name;
-        this.pathToImage = pathToImage;
         this.power = power;
         this.age = 0;
     }
@@ -25,8 +23,6 @@ public abstract class Organism {
     public Position GetOrganismPosition() {
         return organismPosition;
     }
-
-    public String GetOrganismImgPath() { return pathToImage; }
 
     public int GetAge() { return age; }
 

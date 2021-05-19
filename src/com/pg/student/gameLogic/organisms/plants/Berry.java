@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Berry extends Plant {
     public Berry(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.BERRY_POWER, WorldConfig.BERRY_NAME, WorldConfig.BERRY_IMG_PATH, world);
+        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.BERRY_POWER, WorldConfig.BERRY_NAME, world);
     }
 
     @Override

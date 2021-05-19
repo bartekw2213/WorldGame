@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Borsch extends Plant {
     public Borsch(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.BORSCH_POWER, WorldConfig.BORSCH_NAME, WorldConfig.BORSCH_IMG_PATH, world);
+        super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.BORSCH_POWER, WorldConfig.BORSCH_NAME, world);
     }
 
     @Override

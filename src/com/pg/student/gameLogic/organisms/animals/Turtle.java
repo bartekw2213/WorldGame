@@ -6,7 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Turtle extends Animal {
     public Turtle(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.TURTLE_INITIATIVE, WorldConfig.TURTLE_POWER, WorldConfig.TURTLE_NAME, WorldConfig.TURTLE_IMG_PATH, world);
+        super(organismPosition, WorldConfig.TURTLE_INITIATIVE, WorldConfig.TURTLE_POWER, WorldConfig.TURTLE_NAME, world);
     }
 
     @Override

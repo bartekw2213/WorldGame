@@ -9,7 +9,7 @@ public class Human extends Animal {
     private WorldConfig.USER_MOVES userMove;
 
     public Human(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.HUMAN_INITIATIVE, WorldConfig.HUMAN_POWER, WorldConfig.HUMAN_NAME, WorldConfig.HUMAN_IMG_PATH, world);
+        super(organismPosition, WorldConfig.HUMAN_INITIATIVE, WorldConfig.HUMAN_POWER, WorldConfig.HUMAN_NAME, world);
     }
 
     @Override

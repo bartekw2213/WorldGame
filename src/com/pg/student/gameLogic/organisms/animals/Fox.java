@@ -6,8 +6,7 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 
 public class Fox extends Animal {
     public Fox(Position organismPosition, World world) {
-        super(organismPosition, WorldConfig.FOX_INITIATIVE, WorldConfig.FOX_POWER, WorldConfig.FOX_NAME,
-                WorldConfig.FOX_IMG_PATH, world);
+        super(organismPosition, WorldConfig.FOX_INITIATIVE, WorldConfig.FOX_POWER, WorldConfig.FOX_NAME, world);
     }
 
     @Override
