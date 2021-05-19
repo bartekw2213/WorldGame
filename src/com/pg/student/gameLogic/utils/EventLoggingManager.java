@@ -29,6 +29,12 @@ public class EventLoggingManager {
             events.add(event);
     }
 
+    public void ReportAboutAntelopeEscape(String nameOfAggressor) {
+        String event = "Antelopa uciekła przed " + nameOfAggressor;
+        if(!events.contains(event))
+            events.add(event);
+    }
+
     public ArrayList<String> GetEvents() {
         ArrayList<String> eventsCopy = new ArrayList<>(events.size());
         eventsCopy.addAll(events);

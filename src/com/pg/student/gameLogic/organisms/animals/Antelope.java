@@ -31,4 +31,16 @@ public class Antelope extends Animal {
         if(world.GetPositionsManager().IsThisPositionWithinGameBounds(newPosition))
             super.Move(newPosition);
     }
+
+    @Override
+    protected void CollisionWithAnimal(Animal otherAnimal, boolean isAggressor) {
+        int randomNum = (new Random()).nextInt(2);
+
+        if(!isAggressor && randomNum == 1){
+            Move();
+            world.GetEventLoggingManager().ReportAboutAntelopeEscape(otherAnimal.GetName());
+        }
+        else
+            super.CollisionWithAnimal(otherAnimal, isAggressor);
+    }
 }
