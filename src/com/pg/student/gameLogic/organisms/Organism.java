@@ -28,6 +28,10 @@ public abstract class Organism {
 
     public int GetInitiative() { return initiative; }
 
+    public int GetPower() {
+        return power;
+    }
+
     public String GetName() { return name; }
 
     public void IncrementAge() { this.age++; }

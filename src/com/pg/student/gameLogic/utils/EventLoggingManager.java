@@ -23,6 +23,12 @@ public class EventLoggingManager {
             events.add(event);
     }
 
+    public void ReportAboutTurtleDefence(String nameOfDefendedOrganism) {
+        String event = "Żółw obronił się przed " + nameOfDefendedOrganism;
+        if(!events.contains(event))
+            events.add(event);
+    }
+
     public ArrayList<String> GetEvents() {
         ArrayList<String> eventsCopy = new ArrayList<>(events.size());
         eventsCopy.addAll(events);

@@ -22,10 +22,14 @@ public abstract class Animal extends Organism {
 
     @Override
     public void Collision(Organism otherOrganism) {
+        Collision(otherOrganism, true);
+    }
+
+    public void Collision(Organism otherOrganism, boolean isAggressor) {
         if(otherOrganism instanceof Plant)
             otherOrganism.Collision(this);
         else if(otherOrganism instanceof Animal)
-            CollisionWithAnimal((Animal) otherOrganism);
+            CollisionWithAnimal((Animal) otherOrganism, isAggressor);
     }
 
     protected void Move() {
@@ -45,10 +49,20 @@ public abstract class Animal extends Organism {
         }
     }
 
-    private void CollisionWithAnimal(Animal otherAnimal) {
+    protected void MoveBack() {
+        organismPosition = lastPosition;
+    }
+
+    protected void CollisionWithAnimal(Animal otherAnimal, boolean isAggressor) {
         if(IsTheSameType(otherAnimal))
             MultiplyIfFreePositionIsAround();
-        else
+        else if(isAggressor && otherAnimal instanceof Turtle)
+            otherAnimal.Collision(this, false);
+        else if(isAggressor && otherAnimal instanceof Antelope)
+            otherAnimal.Collision(this, false);
+        else if(isAggressor)
             FightAggressorVersusDefender(this, otherAnimal);
+        else
+            FightAggressorVersusDefender(otherAnimal, this);
     }
 }

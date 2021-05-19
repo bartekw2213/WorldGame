@@ -1,6 +1,7 @@
 package com.pg.student.gameLogic.organisms.animals;
 
 import com.pg.student.gameLogic.World;
+import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
@@ -26,5 +27,14 @@ public class Turtle extends Animal {
         int randomNum = (new Random()).nextInt(4);
         if(randomNum == 3)
             super.Move();
+    }
+
+    @Override
+    protected void CollisionWithAnimal(Animal otherAnimal, boolean isAggressor) {
+        if(!isAggressor && otherAnimal.GetPower() < 5) {
+            otherAnimal.MoveBack();
+            world.GetEventLoggingManager().ReportAboutTurtleDefence(otherAnimal.GetName());
+        } else
+            super.CollisionWithAnimal(otherAnimal, isAggressor);
     }
 }
