@@ -21,6 +21,6 @@ public abstract class Plant extends Organism {
 
     @Override
     public void Collision(Organism otherOrganism) {
-
+        super.FightAggressorVersusDefender(otherOrganism, this);
     }
 }
