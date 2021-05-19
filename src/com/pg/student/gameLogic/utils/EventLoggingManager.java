@@ -12,11 +12,15 @@ public class EventLoggingManager {
     }
 
     public void ReportDeathAfterFightWith(String deadOrganismName, String winnerName) {
-        events.add(winnerName + " zabił\\a " + deadOrganismName);
+        String event = winnerName + " zabił\\a " + deadOrganismName;
+        if(!events.contains(event))
+            events.add(event);
     }
 
     public void ReportAboutNewOrganism(String name) {
-        events.add("Urodził\\a się " + name);
+        String event = "Urodził\\a się " + name;
+        if(!events.contains(event))
+            events.add(event);
     }
 
     public ArrayList<String> GetEvents() {
