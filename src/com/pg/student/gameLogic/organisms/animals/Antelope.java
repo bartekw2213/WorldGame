@@ -4,6 +4,8 @@ import com.pg.student.gameLogic.World;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
+import java.util.Random;
+
 public class Antelope extends Animal {
     public Antelope(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.ANTELOPE_INITIATIVE, WorldConfig.ANTELOPE_POWER, WorldConfig.ANTELOPE_NAME, world);
@@ -17,5 +19,16 @@ public class Antelope extends Animal {
     @Override
     protected void Multiply(Position newPosition) {
         world.GetOrganismsManager().AddOrganism(new Antelope(newPosition, world));
+    }
+
+    @Override
+    protected void Move() {
+        int randomXOffset = (((new Random()).nextInt(3)) - 1) * 2;
+        int randomYOffset = (((new Random()).nextInt(3)) - 1) * 2;
+        Position newPosition = new Position(organismPosition.GetX() + randomXOffset,
+                organismPosition.GetY() + randomYOffset);
+
+        if(world.GetPositionsManager().IsThisPositionWithinGameBounds(newPosition))
+            super.Move(newPosition);
     }
 }
