@@ -85,6 +85,21 @@ public class PositionsManager {
         return position.GetX() >= 0 && position.GetY() >= 0 && position.GetX() < worldSize && position.GetY() < worldSize;
     }
 
+    public ArrayList<Organism> GetOrganismsAroundThisPosition(Position position) {
+        PositionsAroundOnePoint positionsAroundOnePoint = new PositionsAroundOnePoint(position);
+        ArrayList<Organism> foundOrganisms = new ArrayList<>(4);
+
+        while(positionsAroundOnePoint.IsAnyPositionLeft()) {
+            Position checkedPosition = positionsAroundOnePoint.GetRandomPosition();
+            Organism possibleOrganismOnThisPosition = FindOrganismOnThisPosition(checkedPosition);
+
+            if(possibleOrganismOnThisPosition != null)
+                foundOrganisms.add(possibleOrganismOnThisPosition);
+        }
+
+        return foundOrganisms;
+    }
+
     private class PositionsAroundOnePoint {
         private final ArrayList<Position> possiblePossitions;
 
