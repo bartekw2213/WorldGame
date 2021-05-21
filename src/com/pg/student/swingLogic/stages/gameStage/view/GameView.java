@@ -78,6 +78,5 @@ public class GameView extends View {
         if(option == JFileChooser.APPROVE_OPTION){
             ((GameController)controller).SaveGame(fileChooser.getSelectedFile());
         }
-        //@TODO to schowac mozna do innego pliku
     }
 }
