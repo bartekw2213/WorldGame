@@ -35,6 +35,7 @@ public class GameController extends Controller implements KeyListener {
             worldSaver.SaveWorld(selectedDirectory);
         } catch (IOException | ClassNotFoundException e) {
             ((GameView)view).ShowFileSavingError();
+            //@TODO w nadklasie view jest juz metoda do errorow
         }
     }
 

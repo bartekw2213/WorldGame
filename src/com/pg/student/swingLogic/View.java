@@ -35,7 +35,6 @@ public abstract class View extends JFrame {
         JLabel label = new JLabel(errorMessage);
         label.setFont(new Font("Segoe UI", Font.BOLD, 26));
         JOptionPane.showMessageDialog(null, label, "Błąd", JOptionPane.WARNING_MESSAGE);
-
     }
 
     protected void InitFrame() {

@@ -35,19 +35,18 @@ public class InitialController extends Controller {
     }
 
     public void InformAboutLoadGameOption() {
-        selectedMode = ModesToSelect.LOAD_GAME; //@TODO to przeniesc gdzie indzziej bo wczytywanie moze nie wyjsc
         GetSaveFile();
     }
 
     public void LoadWorld(File saveFile) {
         try {
             this.loadedWorld = Loader.LoadWorld(saveFile);
+            selectedMode = ModesToSelect.LOAD_GAME;
             super.CloseView();
             super.EndStage();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            view.ShowErrorDialog("Błąd podczas wyczytywania pliku");
         }
-        //@TODO obsluzyc wyjatki
     }
 
     private void GetSaveFile() {

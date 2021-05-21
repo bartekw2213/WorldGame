@@ -60,5 +60,4 @@ public class InitialView extends View {
                     Color.decode(ColorPalette.YELLOW), Font.BOLD, (int)(frameHeight * 0.1));
         }
     }
-
 }
