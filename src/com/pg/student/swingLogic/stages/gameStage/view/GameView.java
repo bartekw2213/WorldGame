@@ -80,9 +80,4 @@ public class GameView extends View {
         }
         //@TODO to schowac mozna do innego pliku
     }
-
-    public void ShowFileSavingError() {
-        JOptionPane.showMessageDialog(this, "Wystąpił błąd podczas zapisu pliku", "Błąd zapisu!",
-                JOptionPane.ERROR_MESSAGE);
-    }
 }

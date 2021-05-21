@@ -33,9 +33,9 @@ public class GameController extends Controller implements KeyListener {
     public void SaveGame(File selectedDirectory) {
         try {
             worldSaver.SaveWorld(selectedDirectory);
+            throw new IOException();
         } catch (IOException | ClassNotFoundException e) {
-            ((GameView)view).ShowFileSavingError();
-            //@TODO w nadklasie view jest juz metoda do errorow
+            view.ShowErrorDialog("Wystąpił błąd podczas zapisu pliku!");
         }
     }
 
