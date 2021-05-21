@@ -14,26 +14,20 @@ import java.io.File;
 import java.io.IOException;
 
 public class GameController extends Controller implements KeyListener {
-    private World gameWorld;
-    private WorldSaver worldSaver;
+    private final World gameWorld;
+    private final WorldSaver worldSaver;
 
-    public GameController(Program mainProgram, View view, int boardSize, int organismsNum) {
+    public GameController(Program mainProgram, View view, World world) {
         super(mainProgram, view);
-        this.gameWorld = new World(boardSize, organismsNum, view.getWidth());
+        this.gameWorld = world;
         this.worldSaver = new WorldSaver(this.gameWorld);
         AddListenersToView();
         SetWorldDimensions();
         DrawGame();
     }
 
-    public GameController(Program mainProgram, View view, World loadedWorld) {
-        super(mainProgram, view);
-        this.gameWorld = loadedWorld;
-        this.worldSaver = new WorldSaver(this.gameWorld);
-        AddListenersToView();
-        SetWorldDimensions();
-        DrawGame();
-        //@TODO zlaczyc dwa konstruktory ze soba
+    public GameController(Program mainProgram, View view, int boardSize, int organismsNum) {
+        this(mainProgram, view, new World(boardSize, organismsNum, view.getWidth()));
     }
 
     public void SaveGame(File selectedDirectory) {
