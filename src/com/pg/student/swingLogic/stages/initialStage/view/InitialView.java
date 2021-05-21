@@ -2,6 +2,7 @@ package com.pg.student.swingLogic.stages.initialStage.view;
 
 import com.pg.student.swingLogic.colors.ColorPalette;
 import com.pg.student.swingLogic.View;
+import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
 import com.pg.student.swingLogic.uiElements.MyButton;
 import com.pg.student.swingLogic.uiElements.MyFlowPanel;
 import com.pg.student.swingLogic.stages.initialStage.controller.InitialController;
@@ -21,6 +22,16 @@ public class InitialView extends View {
     protected void CreateLayout() {
         super.SetYPadding((int)(frameHeight/4.25));
         CreateButtonsPanel();
+    }
+
+    public void AskForSaveFile() {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int option = fileChooser.showOpenDialog(this);
+        if(option == JFileChooser.APPROVE_OPTION){
+            ((InitialController)controller).LoadWorld(fileChooser.getSelectedFile());
+        }
+        //@TODO to schowac mozna do innego pliku
     }
 
     private void CreateButtonsPanel() {

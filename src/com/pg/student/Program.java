@@ -1,5 +1,6 @@
 package com.pg.student;
 
+import com.pg.student.gameLogic.World;
 import com.pg.student.swingLogic.Controller;
 import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
 import com.pg.student.swingLogic.stages.gameStage.view.GameView;
@@ -24,7 +25,7 @@ public class Program {
         if(controller.GetSelectedMode() == InitialController.ModesToSelect.NEW_GAME)
             StartGettingInitialDataStage();
         else if(controller.GetSelectedMode() == InitialController.ModesToSelect.LOAD_GAME)
-            StartLoadGameStage();
+            StartGameStage(controller.GetLoadedWorld());
     }
 
     private void HandleGetInitDataStageFinish(GetInitDataController controller) {
@@ -37,9 +38,7 @@ public class Program {
 
     private void StartGettingInitialDataStage() { new GetInitDataController(this, new GetInitDataView()); }
 
-    private void StartLoadGameStage() {
-        System.out.println("Zaczyna wczytywac gre");
-    }
+    private void StartGameStage(World loadedWorld) { new GameController(this, new GameView(), loadedWorld); }
 
     private void StartGameStage(int boardSize, int organismsNum) { new GameController(this, new GameView(), boardSize, organismsNum); }
 

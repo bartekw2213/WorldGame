@@ -26,12 +26,20 @@ public class GameController extends Controller implements KeyListener {
         DrawGame();
     }
 
+    public GameController(Program mainProgram, View view, World loadedWorld) {
+        super(mainProgram, view);
+        this.gameWorld = loadedWorld;
+        this.worldSaver = new WorldSaver(this.gameWorld);
+        AddListenersToView();
+        SetWorldDimensions();
+        DrawGame();
+        //@TODO zlaczyc dwa konstruktory ze soba
+    }
+
     public void SaveGame(File selectedDirectory) {
         try {
             worldSaver.SaveWorld(selectedDirectory);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         //@TODO zrobic cos z wyjatkami
