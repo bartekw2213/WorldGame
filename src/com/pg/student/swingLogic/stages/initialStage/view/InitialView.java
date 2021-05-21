@@ -31,7 +31,6 @@ public class InitialView extends View {
         if(option == JFileChooser.APPROVE_OPTION){
             ((InitialController)controller).LoadWorld(fileChooser.getSelectedFile());
         }
-        //@TODO to schowac mozna do innego pliku
     }
 
     private void CreateButtonsPanel() {
