@@ -30,7 +30,10 @@ public class WorldSaver {
         Date date = new Date();
         String fileName = "zapis_gry_" + formatter.format(date);
         File saveFile = new File(directory.getAbsolutePath() + "/" + fileName);
-        saveFile.createNewFile(); //@TODO nie ignorować tego
+
+        if(!saveFile.createNewFile())
+            throw new IOException("Plik już istnieje");
+
         return saveFile;
     }
 }
