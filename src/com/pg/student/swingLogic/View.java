@@ -32,7 +32,11 @@ public abstract class View extends JFrame {
     }
 
     public void ShowErrorDialog(String errorMessage) {
-        JOptionPane.showMessageDialog(null, errorMessage, "Błąd", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, errorMessage, "Błąd!", JOptionPane.WARNING_MESSAGE);
+    }
+
+    public void ShowMessageDialog(String message) {
+        JOptionPane.showMessageDialog(null, message, "Sukces!", JOptionPane.PLAIN_MESSAGE);
     }
 
     protected void InitFrame() {
