@@ -34,9 +34,8 @@ public class GameController extends Controller implements KeyListener {
         try {
             worldSaver.SaveWorld(selectedDirectory);
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            ((GameView)view).ShowFileSavingError();
         }
-        //@TODO zrobic cos z wyjatkami
     }
 
     private void AddListenersToView() {
