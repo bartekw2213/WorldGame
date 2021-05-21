@@ -9,6 +9,7 @@ import com.pg.student.swingLogic.stages.gameStage.view.GameView;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 
 public class GameController extends Controller implements KeyListener {
     private World gameWorld;
@@ -19,6 +20,10 @@ public class GameController extends Controller implements KeyListener {
         AddListenersToView();
         SetWorldDimensions();
         DrawGame();
+    }
+
+    public void SaveGame(File selectedDirectory) {
+        System.out.println("File saved");
     }
 
     private void AddListenersToView() {

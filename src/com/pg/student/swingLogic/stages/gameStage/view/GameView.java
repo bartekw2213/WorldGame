@@ -2,11 +2,13 @@ package com.pg.student.swingLogic.stages.gameStage.view;
 
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
+import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 
 public class GameView extends View {
@@ -70,6 +72,11 @@ public class GameView extends View {
     }
 
     public void ShowFileToSaveSelector() {
-        System.out.println("Wybierz plik");
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        int option = fileChooser.showOpenDialog(this);
+        if(option == JFileChooser.APPROVE_OPTION){
+            ((GameController)controller).SaveGame(fileChooser.getSelectedFile());
+        }
     }
 }
