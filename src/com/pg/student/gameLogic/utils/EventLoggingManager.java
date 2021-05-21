@@ -41,6 +41,18 @@ public class EventLoggingManager {
             events.add(event);
     }
 
+    public void ReportAboutSuperPowerUse() {
+        events.add("Całopalenie aktywowane!");
+    }
+
+    public void ReportAboutSuperPowerEnd() {
+        events.add("Całopalenie zakończone");
+    }
+
+    public void ReportAboutSuperPowerVictim(String victimName) {
+        events.add("Całopalenie zabiło " + victimName);
+    }
+
     public ArrayList<String> GetEvents() {
         ArrayList<String> eventsCopy = new ArrayList<>(events.size());
         eventsCopy.addAll(events);

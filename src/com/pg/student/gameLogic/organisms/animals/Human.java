@@ -5,11 +5,17 @@ import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
+import java.util.ArrayList;
+
 public class Human extends Animal {
     private WorldConfig.USER_MOVES userMove;
+    private long roundsSinceSuperPowerUse;
+    private boolean superPowerInUse;
 
     public Human(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.HUMAN_INITIATIVE, WorldConfig.HUMAN_POWER, WorldConfig.HUMAN_NAME, world);
+        this.roundsSinceSuperPowerUse = 10;
+        this.superPowerInUse = false;
     }
 
     @Override
@@ -24,6 +30,8 @@ public class Human extends Animal {
     public void Action() {
         GetUserMove();
         PerformProperAction();
+        UseSuperPowerIfPossible();
+        CheckIfSuperPowerTerminated();
     }
 
     private void GetUserMove() {
@@ -34,7 +42,7 @@ public class Human extends Animal {
         if(UserUsedArrows())
             Move();
         else if(UserUsedSuperPower())
-            UseSuperPower();
+            ActivateSuperPower();
     }
 
     private boolean UserUsedArrows() {
@@ -52,8 +60,32 @@ public class Human extends Animal {
         super.Move(newPosition);
     }
 
-    private void UseSuperPower() {
+    private void ActivateSuperPower() {
+        if(roundsSinceSuperPowerUse >= 5) {
+            this.superPowerInUse = true;
+            roundsSinceSuperPowerUse = 0;
+            world.GetEventLoggingManager().ReportAboutSuperPowerUse();
+        }
+    }
+    
+    private void UseSuperPowerIfPossible() {
+        if(this.superPowerInUse) {
+            ArrayList<Organism> organismsAroundHuman = world.GetPositionsManager().GetOrganismsAroundThisPosition(organismPosition);
 
+            for(Organism organism : organismsAroundHuman) {
+                world.GetOrganismsManager().KillOrganism(organism);
+                world.GetEventLoggingManager().ReportAboutSuperPowerVictim(organism.GetName());
+            }
+        }
+
+        this.roundsSinceSuperPowerUse++;
+    }
+    
+    private void CheckIfSuperPowerTerminated() {
+        if(roundsSinceSuperPowerUse >= 5 && this.superPowerInUse) {
+            this.superPowerInUse = false;
+            world.GetEventLoggingManager().ReportAboutSuperPowerEnd();
+        }
     }
 
     private Position GetNewPositionBasedOnUserMove() {
