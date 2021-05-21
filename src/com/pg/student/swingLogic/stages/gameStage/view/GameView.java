@@ -6,16 +6,22 @@ import com.pg.student.swingLogic.stages.gameStage.view.elements.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class GameView extends View {
     private final double VERTICAL_SECTION_WIDTH_TO_FRAME_WIDTH = 0.15;
+    private RightManualSection rightManualSection;
     private GameSection gameSection;
     private BottomLogSection logSection;
 
     public GameView() {
         super(0.5, 0.9, Color.decode(ColorPalette.ORANGE));
         this.setResizable(true);
+    }
+
+    public void AddSaveListener(ActionListener listener) {
+        this.rightManualSection.AddSaveListener(listener);
     }
 
     @Override
@@ -36,7 +42,8 @@ public class GameView extends View {
     }
 
     private void CreateRightManualSection() {
-        this.add(new RightManualSection((int)(frameWidth * VERTICAL_SECTION_WIDTH_TO_FRAME_WIDTH), mainColor), BorderLayout.EAST);
+        this.rightManualSection = new RightManualSection((int)(frameWidth * VERTICAL_SECTION_WIDTH_TO_FRAME_WIDTH), mainColor);
+        this.add(this.rightManualSection, BorderLayout.EAST);
     }
 
     private void CreateGameSection() {
@@ -60,5 +67,9 @@ public class GameView extends View {
 
     public void DrawEventsLogs(ArrayList<String> events) {
         this.logSection.LogEvents(events);
+    }
+
+    public void ShowFileToSaveSelector() {
+        System.out.println("Wybierz plik");
     }
 }

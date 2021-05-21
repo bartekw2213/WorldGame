@@ -16,13 +16,14 @@ public class GameController extends Controller implements KeyListener {
     public GameController(Program mainProgram, View view, int boardSize, int organismsNum) {
         super(mainProgram, view);
         this.gameWorld = new World(boardSize, organismsNum, view.getWidth());
-        AddListenerToView();
+        AddListenersToView();
         SetWorldDimensions();
         DrawGame();
     }
 
-    private void AddListenerToView() {
+    private void AddListenersToView() {
         view.addKeyListener(this);
+        ((GameView)view).AddSaveListener(e -> ((GameView)view).ShowFileToSaveSelector());
     }
 
     @Override
