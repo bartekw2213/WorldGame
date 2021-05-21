@@ -4,7 +4,9 @@ import com.pg.student.gameLogic.World;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
-public class Fox extends Animal {
+import java.io.Serializable;
+
+public class Fox extends Animal implements Serializable {
     public Fox(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.FOX_INITIATIVE, WorldConfig.FOX_POWER, WorldConfig.FOX_NAME, world);
     }

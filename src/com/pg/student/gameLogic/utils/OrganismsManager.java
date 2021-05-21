@@ -2,9 +2,10 @@ package com.pg.student.gameLogic.utils;
 
 import com.pg.student.gameLogic.organisms.Organism;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class OrganismsManager {
+public class OrganismsManager implements Serializable {
     private ArrayList<Organism> organisms;
     private ArrayList<Organism> newBornOrganismsInRound;
     private ArrayList<Organism> deadOrganismsInRound;

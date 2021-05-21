@@ -3,7 +3,9 @@ package com.pg.student.gameLogic.organisms;
 import com.pg.student.gameLogic.World;
 import com.pg.student.gameLogic.utils.Position;
 
-public abstract class Organism {
+import java.io.Serializable;
+
+public abstract class Organism implements Serializable {
     protected Position organismPosition;
     protected final World world;
     protected final int initiative;

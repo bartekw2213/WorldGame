@@ -4,7 +4,9 @@ import com.pg.student.gameLogic.World;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
-public class Sheep extends Animal {
+import java.io.Serializable;
+
+public class Sheep extends Animal implements Serializable {
     public Sheep(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.SHEEP_INITIATIVE, WorldConfig.SHEEP_POWER, WorldConfig.SHEEP_NAME, world);
     }

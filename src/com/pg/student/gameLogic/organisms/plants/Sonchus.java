@@ -4,7 +4,9 @@ import com.pg.student.gameLogic.World;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
-public class Sonchus extends Plant {
+import java.io.Serializable;
+
+public class Sonchus extends Plant implements Serializable {
     public Sonchus(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.SONCHUS_POWER, WorldConfig.SONCHUS_NAME, world);
     }

@@ -2,9 +2,10 @@ package com.pg.student.gameLogic.utils;
 
 import com.pg.student.gameLogic.organisms.Organism;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EventLoggingManager {
+public class EventLoggingManager implements Serializable {
     private ArrayList<String> events;
 
     public EventLoggingManager() {

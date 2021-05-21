@@ -4,10 +4,10 @@ import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.organisms.OrganismsFactory;
 import com.pg.student.gameLogic.utils.*;
 
-import javax.swing.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class World {
+public class World implements Serializable {
     private final int worldSize;
     private final PositionsManager positionsManager;
     private final OrganismsManager organismsManager;

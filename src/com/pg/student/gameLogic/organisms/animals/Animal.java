@@ -5,7 +5,9 @@ import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.organisms.plants.Plant;
 import com.pg.student.gameLogic.utils.Position;
 
-public abstract class Animal extends Organism {
+import java.io.Serializable;
+
+public abstract class Animal extends Organism implements Serializable {
     protected Position lastPosition;
 
     public Animal(Position organismPosition, int initiative, int power, String name, World world) {

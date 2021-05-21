@@ -5,9 +5,10 @@ import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public abstract class Plant extends Organism {
+public abstract class Plant extends Organism implements Serializable {
     public Plant(Position organismPosition, int initiative, int power, String name, World world) {
         super(organismPosition, initiative, power, name, world);
     }

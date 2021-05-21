@@ -2,10 +2,11 @@ package com.pg.student.gameLogic.utils;
 
 import com.pg.student.gameLogic.organisms.Organism;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PositionsManager {
+public class PositionsManager implements Serializable {
     private final ArrayList<Organism> organisms;
     private final int worldSize;
 

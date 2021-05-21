@@ -6,9 +6,10 @@ import com.pg.student.gameLogic.organisms.animals.Animal;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Borsch extends Plant {
+public class Borsch extends Plant implements Serializable {
     public Borsch(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.BORSCH_POWER, WorldConfig.BORSCH_NAME, world);
     }

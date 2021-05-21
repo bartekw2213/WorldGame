@@ -5,25 +5,36 @@ import com.pg.student.gameLogic.World;
 import com.pg.student.gameLogic.utils.WorldConfig;
 import com.pg.student.swingLogic.Controller;
 import com.pg.student.swingLogic.View;
+import com.pg.student.swingLogic.stages.gameStage.controller.elements.WorldSaver;
 import com.pg.student.swingLogic.stages.gameStage.view.GameView;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.io.IOException;
 
 public class GameController extends Controller implements KeyListener {
     private World gameWorld;
+    private WorldSaver worldSaver;
 
     public GameController(Program mainProgram, View view, int boardSize, int organismsNum) {
         super(mainProgram, view);
         this.gameWorld = new World(boardSize, organismsNum, view.getWidth());
+        this.worldSaver = new WorldSaver(this.gameWorld);
         AddListenersToView();
         SetWorldDimensions();
         DrawGame();
     }
 
     public void SaveGame(File selectedDirectory) {
-        System.out.println("File saved");
+        try {
+            worldSaver.SaveWorld(selectedDirectory);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        //@TODO zrobic cos z wyjatkami
     }
 
     private void AddListenersToView() {

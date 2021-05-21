@@ -4,9 +4,10 @@ import com.pg.student.gameLogic.World;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Antelope extends Animal {
+public class Antelope extends Animal implements Serializable {
     public Antelope(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.ANTELOPE_INITIATIVE, WorldConfig.ANTELOPE_POWER, WorldConfig.ANTELOPE_NAME, world);
     }

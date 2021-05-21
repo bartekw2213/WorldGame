@@ -9,9 +9,10 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WorldImageManager {
+public class WorldImageManager implements Serializable {
     PositionsManager positionsManager;
     private final int gameImagesSize;
     private ImageIcon ANTELOPE_IMAGE;

@@ -5,9 +5,10 @@ import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Human extends Animal {
+public class Human extends Animal implements Serializable {
     private WorldConfig.USER_MOVES userMove;
     private long roundsSinceSuperPowerUse;
     private boolean superPowerInUse;

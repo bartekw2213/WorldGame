@@ -6,7 +6,9 @@ import com.pg.student.gameLogic.organisms.animals.Animal;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
-public class Guarana extends Plant {
+import java.io.Serializable;
+
+public class Guarana extends Plant implements Serializable {
     public Guarana(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.PLANT_INITIATIVE, WorldConfig.GUARANA_POWER, WorldConfig.GUARANA_NAME, world);
     }

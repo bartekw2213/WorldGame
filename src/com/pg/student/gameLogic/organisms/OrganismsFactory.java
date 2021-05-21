@@ -7,10 +7,11 @@ import com.pg.student.gameLogic.utils.WorldConfig;
 import com.pg.student.gameLogic.organisms.animals.*;
 import com.pg.student.gameLogic.organisms.plants.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class OrganismsFactory {
+public class OrganismsFactory implements Serializable {
 
     public OrganismsFactory() {
 

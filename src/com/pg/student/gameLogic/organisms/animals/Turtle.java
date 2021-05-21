@@ -5,9 +5,10 @@ import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.utils.Position;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Turtle extends Animal {
+public class Turtle extends Animal implements Serializable {
     public Turtle(Position organismPosition, World world) {
         super(organismPosition, WorldConfig.TURTLE_INITIATIVE, WorldConfig.TURTLE_POWER, WorldConfig.TURTLE_NAME, world);
     }
