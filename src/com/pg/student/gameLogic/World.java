@@ -14,6 +14,7 @@ public class World implements Serializable {
     private final EventLoggingManager eventLoggingManager;
     private final WorldImageManager worldImageManager;
     private final ArrayList<Organism> allOrganisms;
+    private final OrganismsFactory organismsFactory;
     private WorldConfig.USER_MOVES userMove;
 
     public World(int worldSize, int initialOrganismsNum, int frameWidth) {
@@ -21,6 +22,7 @@ public class World implements Serializable {
         this.allOrganisms = new ArrayList<>(this.worldSize * this.worldSize);
         this.positionsManager = new PositionsManager(allOrganisms, this.worldSize);
         this.organismsManager = new OrganismsManager(allOrganisms);
+        this.organismsFactory = new OrganismsFactory(allOrganisms, this);
         this.worldImageManager = new WorldImageManager(positionsManager, frameWidth);
         this.eventLoggingManager = new EventLoggingManager();
         CreateOrganisms(initialOrganismsNum);
@@ -29,11 +31,10 @@ public class World implements Serializable {
     private void CreateOrganisms(int initialOrganismsNum) {
         final int plantsNum = (int)((initialOrganismsNum - 1) / (WorldConfig.INITIAL_ANIMALS_TO_PLANTS_RATIO + 1));
         final int animalsNum = initialOrganismsNum - 1 - plantsNum;
-        OrganismsFactory factory = new OrganismsFactory();
 
-        factory.AddPlayerToOrganisms(allOrganisms, this);
-        factory.AddRandomPlantsToOrganisms(allOrganisms, plantsNum, this);
-        factory.AddRandomAnimalsToOrganisms(allOrganisms, animalsNum, this);
+        organismsFactory.AddPlayerToOrganisms();
+        organismsFactory.AddRandomPlantsToOrganisms(plantsNum);
+        organismsFactory.AddRandomAnimalsToOrganisms(animalsNum);
     }
 
     public void TriggerRound() {
@@ -56,6 +57,8 @@ public class World implements Serializable {
     public EventLoggingManager GetEventLoggingManager() { return eventLoggingManager; }
 
     public WorldImageManager GetWorldImageManager() { return worldImageManager; }
+
+    public OrganismsFactory GetOrganismsFactory() { return organismsFactory; }
 
     public WorldConfig.USER_MOVES GetUserMove() { return userMove; }
 }

@@ -3,12 +3,13 @@ package com.pg.student.swingLogic.stages.gameStage.view;
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
 import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
-import com.pg.student.swingLogic.stages.gameStage.view.elements.*;
+import com.pg.student.swingLogic.stages.gameStage.view.elements.OrganismPicker;
+import com.pg.student.swingLogic.stages.gameStage.view.sections.*;
+import com.pg.student.swingLogic.uiElements.MyIconLabel;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.util.ArrayList;
 
 public class GameView extends View {
@@ -16,9 +17,11 @@ public class GameView extends View {
     private RightManualSection rightManualSection;
     private GameSection gameSection;
     private BottomLogSection logSection;
+    private final int gameSize;
 
-    public GameView() {
+    public GameView(int gameSize) {
         super(0.5, 0.9, Color.decode(ColorPalette.ORANGE));
+        this.gameSize = gameSize;
         this.setResizable(true);
     }
 
@@ -49,7 +52,7 @@ public class GameView extends View {
     }
 
     private void CreateGameSection() {
-        this.gameSection = new GameSection(frameWidth, mainColor);
+        this.gameSection = new GameSection(frameWidth, gameSize, mainColor, this);
         this.add(this.gameSection, BorderLayout.CENTER);
     }
 
@@ -72,11 +75,16 @@ public class GameView extends View {
     }
 
     public void ShowFileToSaveSelector() {
+        //@TODO przeniesc takie elementy do package element
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         int option = fileChooser.showOpenDialog(this);
         if(option == JFileChooser.APPROVE_OPTION){
             ((GameController)controller).SaveGame(fileChooser.getSelectedFile());
         }
+    }
+
+    public void ShowAnimalPicker(GameSection.GameField newOrganismField) {
+        new OrganismPicker(this, (GameController)controller, newOrganismField );
     }
 }

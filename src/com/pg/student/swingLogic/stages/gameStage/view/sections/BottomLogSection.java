@@ -1,10 +1,9 @@
-package com.pg.student.swingLogic.stages.gameStage.view.elements;
+package com.pg.student.swingLogic.stages.gameStage.view.sections;
 
 import com.pg.student.swingLogic.uiElements.MyBorderPanel;
 import com.pg.student.swingLogic.uiElements.MyFlowPanel;
 import com.pg.student.swingLogic.uiElements.MyLabel;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 

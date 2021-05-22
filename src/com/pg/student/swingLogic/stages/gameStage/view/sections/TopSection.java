@@ -1,4 +1,4 @@
-package com.pg.student.swingLogic.stages.gameStage.view.elements;
+package com.pg.student.swingLogic.stages.gameStage.view.sections;
 
 import com.pg.student.swingLogic.uiElements.MyBorderPanel;
 import com.pg.student.swingLogic.uiElements.MyFlowPanel;

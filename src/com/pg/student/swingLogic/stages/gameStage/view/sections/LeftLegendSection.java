@@ -1,14 +1,6 @@
-package com.pg.student.swingLogic.stages.gameStage.view.elements;
+package com.pg.student.swingLogic.stages.gameStage.view.sections;
 
-import com.pg.student.swingLogic.uiElements.MyFlowPanel;
-import com.pg.student.swingLogic.uiElements.MyLabel;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class LeftLegendSection extends VerticalSection {
     public LeftLegendSection(int width, Color color) {

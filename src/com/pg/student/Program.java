@@ -38,8 +38,12 @@ public class Program {
 
     private void StartGettingInitialDataStage() { new GetInitDataController(this, new GetInitDataView()); }
 
-    private void StartGameStage(World loadedWorld) { new GameController(this, new GameView(), loadedWorld); }
+    private void StartGameStage(World loadedWorld) {
+        new GameController(this, new GameView(loadedWorld.GetWorldSize()), loadedWorld);
+    }
 
-    private void StartGameStage(int boardSize, int organismsNum) { new GameController(this, new GameView(), boardSize, organismsNum); }
+    private void StartGameStage(int boardSize, int organismsNum) {
+        new GameController(this, new GameView(boardSize), boardSize, organismsNum);
+    }
 
 }

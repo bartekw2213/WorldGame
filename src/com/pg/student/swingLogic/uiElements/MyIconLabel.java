@@ -16,15 +16,11 @@ public class MyIconLabel extends MyLabel{
         ResizeAndSetImage(imgPath);
     }
 
-    public MyIconLabel(ImageIcon image) {
-        SetImage(image);
-    }
-
     public MyIconLabel() {
         this.ICON_SIZE = 0;
     }
 
-    private void SetImage(ImageIcon image) {
+    protected void SetImage(ImageIcon image) {
         this.ICON_SIZE = image.getIconWidth();
         this.setIcon(image);
     }

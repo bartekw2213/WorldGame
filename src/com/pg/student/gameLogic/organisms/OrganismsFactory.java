@@ -12,31 +12,51 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class OrganismsFactory implements Serializable {
-
-    public OrganismsFactory() {
-
+    private final ArrayList<Organism> allOrganisms;
+    private final World world;
+    //@TODO przeniesc funkcje z tworzace organizmy z organismsManager
+    public OrganismsFactory(ArrayList<Organism> allOrganisms, World world) {
+        this.allOrganisms = allOrganisms;
+        this.world = world;
     }
 
-    public void AddPlayerToOrganisms(ArrayList<Organism> allOrganisms, World world) {
+    public void AddNewOrganismSelectedByUser(String organismName, int x, int y) {
+        Position position = new Position(x, y);
+
+        switch(organismName) {
+            case WorldConfig.ANTELOPE_NAME: allOrganisms.add(new Antelope(position, world)); break;
+            case WorldConfig.BERRY_NAME: allOrganisms.add(new Berry(position, world)); break;
+            case WorldConfig.BORSCH_NAME: allOrganisms.add(new Borsch(position, world)); break;
+            case WorldConfig.FOX_NAME: allOrganisms.add(new Fox(position, world)); break;
+            case WorldConfig.GRASS_NAME: allOrganisms.add(new Grass(position, world)); break;
+            case WorldConfig.GUARANA_NAME: allOrganisms.add(new Guarana(position, world)); break;
+            case WorldConfig.SHEEP_NAME: allOrganisms.add(new Sheep(position, world)); break;
+            case WorldConfig.SONCHUS_NAME: allOrganisms.add(new Sonchus(position, world)); break;
+            case WorldConfig.TURTLE_NAME: allOrganisms.add(new Turtle(position, world)); break;
+            case WorldConfig.WOLF_NAME: allOrganisms.add(new Wolf(position, world)); break;
+        }
+    }
+
+    public void AddPlayerToOrganisms() {
         Position freePosition = world.GetPositionsManager().FindRandomFreePosition();
         allOrganisms.add(new Human(freePosition, world));
     }
 
-    public void AddRandomPlantsToOrganisms(ArrayList<Organism> allOrganisms, int plantsNum, World world) {
+    public void AddRandomPlantsToOrganisms(int plantsNum) {
         for(int i = 0; i < plantsNum; i++) {
             Position freePosition = world.GetPositionsManager().FindRandomFreePosition();
-            allOrganisms.add(CreateRandomPlant(world, freePosition));
+            allOrganisms.add(CreateRandomPlant(freePosition));
         }
     }
 
-    public void AddRandomAnimalsToOrganisms(ArrayList<Organism> allOrganisms, int animalsNum, World world) {
+    public void AddRandomAnimalsToOrganisms(int animalsNum) {
         for(int i = 0; i < animalsNum; i++) {
             Position freePosition = world.GetPositionsManager().FindRandomFreePosition();
-            allOrganisms.add(CreateRandomAnimal(world, freePosition));
+            allOrganisms.add(CreateRandomAnimal(freePosition));
         }
     }
 
-    public Animal CreateRandomAnimal(World world, Position freePosition) {
+    public Animal CreateRandomAnimal(Position freePosition) {
         int randomNumber = (new Random()).nextInt(WorldConfig.ANIMALS_NUM);
         Animal createdAnimal = null;
 
@@ -51,7 +71,7 @@ public class OrganismsFactory implements Serializable {
         return createdAnimal;
     }
 
-    public Plant CreateRandomPlant(World world, Position freePosition) {
+    public Plant CreateRandomPlant(Position freePosition) {
         int randomNumber = (new Random()).nextInt(WorldConfig.PLANTS_NUM);
         Plant createdPlant = null;
 

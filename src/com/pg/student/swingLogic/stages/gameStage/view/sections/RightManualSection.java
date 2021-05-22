@@ -1,9 +1,8 @@
-package com.pg.student.swingLogic.stages.gameStage.view.elements;
+package com.pg.student.swingLogic.stages.gameStage.view.sections;
 
 import com.pg.student.swingLogic.colors.ColorPalette;
 import com.pg.student.swingLogic.uiElements.MyButton;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 

@@ -7,6 +7,8 @@ import com.pg.student.swingLogic.Controller;
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.stages.gameStage.controller.elements.WorldSaver;
 import com.pg.student.swingLogic.stages.gameStage.view.GameView;
+import com.pg.student.swingLogic.stages.gameStage.view.sections.GameSection;
+import com.pg.student.swingLogic.uiElements.MyIconLabel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -37,6 +39,13 @@ public class GameController extends Controller implements KeyListener {
         } catch (IOException | ClassNotFoundException e) {
             view.ShowErrorDialog("Wystąpił błąd podczas zapisu pliku!");
         }
+    }
+
+    public void AddNewOrganismToGame(String organismName, GameSection.GameField newOrganismField) {
+        gameWorld.GetOrganismsFactory().AddNewOrganismSelectedByUser(organismName, newOrganismField.GetX(),
+                newOrganismField.GetY());
+
+        newOrganismField.UpdateIcon(gameWorld.GetWorldImageManager().GetOrganismIcon(organismName));
     }
 
     private void AddListenersToView() {

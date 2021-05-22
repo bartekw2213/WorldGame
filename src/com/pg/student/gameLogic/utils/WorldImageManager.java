@@ -41,16 +41,16 @@ public class WorldImageManager implements Serializable {
             if(organism == null)
                 imagesOfOrganismsOnEachPosition.add(null);
             else
-                imagesOfOrganismsOnEachPosition.add(GetOrganismIcon(organism));
+                imagesOfOrganismsOnEachPosition.add(GetOrganismIcon(organism.GetName()));
         }
 
         return imagesOfOrganismsOnEachPosition;
     }
 
-    private ImageIcon GetOrganismIcon(Organism organism) {
+    public ImageIcon GetOrganismIcon(String organismName) {
         ImageIcon returnedImage = null;
 
-        switch(organism.GetName()) {
+        switch(organismName) {
             case WorldConfig.ANTELOPE_NAME: returnedImage = ANTELOPE_IMAGE; break;
             case WorldConfig.FOX_NAME: returnedImage = FOX_IMAGE; break;
             case WorldConfig.HUMAN_NAME: returnedImage = HUMAN_IMAGE; break;
