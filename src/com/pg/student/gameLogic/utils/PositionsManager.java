@@ -101,7 +101,7 @@ public class PositionsManager implements Serializable {
         return foundOrganisms;
     }
 
-    private class PositionsAroundOnePoint {
+    public static class PositionsAroundOnePoint {
         private final ArrayList<Position> possiblePossitions;
 
         public PositionsAroundOnePoint(Position position) {

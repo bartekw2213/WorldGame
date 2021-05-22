@@ -6,6 +6,7 @@ import com.pg.student.swingLogic.uiElements.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class GameSection extends MyGridPanel {
     private final int BORDER_WIDTH = 5;
@@ -24,22 +25,31 @@ public class GameSection extends MyGridPanel {
     }
 
     public void DrawWorld(ArrayList<ImageIcon> images) {
-        int fieldBorderWidth = 1;
         this.removeAll();
 
         for(ImageIcon image : images) {
-            if(image == null) {
-                MyLabel emptyField = new MyLabel();
-                emptyField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
-                this.add(emptyField);
-            } else {
-                MyLabel organismField = new MyIconLabel(image);
-                organismField.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), fieldBorderWidth);
-                organismField.setHorizontalAlignment(SwingConstants.CENTER);
-                this.add(organismField);
-            }
+            if(image == null)
+                this.add(new GameField());
+            else
+                this.add(new GameField(image));
         }
 
         RefreshPanel();
+    }
+
+    private class GameField extends MyIconLabel {
+        public GameField(ImageIcon image) {
+            super(image);
+            SetInitialLook();
+        }
+
+        public GameField() {
+            SetInitialLook();
+        }
+
+        private void SetInitialLook() {
+            this.AddBorder(Color.decode(ColorPalette.DARK_ORANGE), 1);
+            this.setHorizontalAlignment(SwingConstants.CENTER);
+        }
     }
 }

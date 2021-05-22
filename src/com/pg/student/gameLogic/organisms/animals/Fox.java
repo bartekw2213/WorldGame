@@ -1,7 +1,9 @@
 package com.pg.student.gameLogic.organisms.animals;
 
 import com.pg.student.gameLogic.World;
+import com.pg.student.gameLogic.organisms.Organism;
 import com.pg.student.gameLogic.utils.Position;
+import com.pg.student.gameLogic.utils.PositionsManager;
 import com.pg.student.gameLogic.utils.WorldConfig;
 
 import java.io.Serializable;
@@ -23,7 +25,19 @@ public class Fox extends Animal implements Serializable {
 
     @Override
     protected void Move() {
-        Position newPosition = world.GetPositionsManager().FindFreePositionAroundThisPosition(organismPosition);
+        Position newPosition = null;
+        PositionsManager.PositionsAroundOnePoint positionsAround = new PositionsManager.PositionsAroundOnePoint(organismPosition);
+
+        while(positionsAround.IsAnyPositionLeft()) {
+            Position checkedPosition = positionsAround.GetRandomPosition();
+            Organism possibleEnemy = world.GetPositionsManager().FindOrganismOnThisPosition(checkedPosition);
+
+            if(possibleEnemy == null || possibleEnemy.GetPower() < power) {
+                newPosition = checkedPosition;
+                break;
+            }
+        }
+
         if(newPosition != null)
             super.Move(newPosition);
     }
