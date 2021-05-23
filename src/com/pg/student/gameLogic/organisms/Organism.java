@@ -1,7 +1,6 @@
 package com.pg.student.gameLogic.organisms;
 
 import com.pg.student.gameLogic.World;
-import com.pg.student.gameLogic.organisms.animals.Animal;
 import com.pg.student.gameLogic.utils.Position;
 
 import java.io.Serializable;
