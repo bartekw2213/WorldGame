@@ -24,7 +24,7 @@ public class TopSection extends MyBorderPanel {
 
     private void CreateSignature() {
         JPanel signaturePanel = new MyFlowPanel(PANEL_WIDTH, PANEL_HEIGHT / 4, PANEL_COLOR);
-        JLabel signatureLabel = new MyLabel("Bartłomiej Wilczyński 184899", Font.BOLD, PANEL_HEIGHT / 5);
+        JLabel signatureLabel = new MyLabel("Bartłomiej Wilczyński 184899", Font.BOLD, PANEL_HEIGHT / 6);
         signaturePanel.add(signatureLabel);
         this.add(signaturePanel, BorderLayout.SOUTH);
     }
