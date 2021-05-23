@@ -14,7 +14,7 @@ import java.util.Random;
 public class OrganismsFactory implements Serializable {
     private final ArrayList<Organism> allOrganisms;
     private final World world;
-    //@TODO przeniesc funkcje z tworzace organizmy z organismsManager
+
     public OrganismsFactory(ArrayList<Organism> allOrganisms, World world) {
         this.allOrganisms = allOrganisms;
         this.world = world;
