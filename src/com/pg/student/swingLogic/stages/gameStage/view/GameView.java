@@ -3,6 +3,7 @@ package com.pg.student.swingLogic.stages.gameStage.view;
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
 import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
+import com.pg.student.swingLogic.stages.gameStage.view.elements.MyDirChooser;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.OrganismPicker;
 import com.pg.student.swingLogic.stages.gameStage.view.sections.*;
 import com.pg.student.swingLogic.uiElements.MyIconLabel;
@@ -75,13 +76,7 @@ public class GameView extends View {
     }
 
     public void ShowFileToSaveSelector() {
-        //@TODO przeniesc takie elementy do package element
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        int option = fileChooser.showOpenDialog(this);
-        if(option == JFileChooser.APPROVE_OPTION){
-            ((GameController)controller).SaveGame(fileChooser.getSelectedFile());
-        }
+        new MyDirChooser((GameController)controller, this);
     }
 
     public void ShowAnimalPicker(GameSection.GameField newOrganismField) {
