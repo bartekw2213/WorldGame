@@ -17,6 +17,7 @@ public class OrganismsManager implements Serializable {
     }
 
     public void KillOrganism(Organism organism) {
+        organism.MoveBack();
         deadOrganismsInRound.add(organism);
     }
 

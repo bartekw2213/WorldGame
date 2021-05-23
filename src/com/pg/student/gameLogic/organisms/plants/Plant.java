@@ -26,5 +26,5 @@ public abstract class Plant extends Organism implements Serializable {
     }
 
     @Override
-    protected void MoveBack() { }
+    public void MoveBack() { }
 }

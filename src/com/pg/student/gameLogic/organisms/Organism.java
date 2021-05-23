@@ -43,9 +43,9 @@ public abstract class Organism implements Serializable {
 
     public abstract void Collision(Organism otherOrganism);
 
-    protected abstract void Multiply(Position newPosition);
+    public abstract void MoveBack();
 
-    protected abstract void MoveBack();
+    protected abstract void Multiply(Position newPosition);
 
     protected void FightAggressorVersusDefender(Organism aggressor, Organism defender) {
         if(aggressor.power < defender.power) {
