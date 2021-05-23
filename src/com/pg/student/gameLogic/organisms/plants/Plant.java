@@ -24,4 +24,7 @@ public abstract class Plant extends Organism implements Serializable {
     public void Collision(Organism otherOrganism) {
         super.FightAggressorVersusDefender(otherOrganism, this);
     }
+
+    @Override
+    protected void MoveBack() { }
 }

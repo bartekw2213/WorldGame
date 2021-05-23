@@ -1,6 +1,7 @@
 package com.pg.student.gameLogic.organisms;
 
 import com.pg.student.gameLogic.World;
+import com.pg.student.gameLogic.organisms.animals.Animal;
 import com.pg.student.gameLogic.utils.Position;
 
 import java.io.Serializable;
@@ -44,6 +45,8 @@ public abstract class Organism implements Serializable {
 
     protected abstract void Multiply(Position newPosition);
 
+    protected abstract void MoveBack();
+
     protected void FightAggressorVersusDefender(Organism aggressor, Organism defender) {
         if(aggressor.power < defender.power) {
             world.GetOrganismsManager().KillOrganism(aggressor);
@@ -57,6 +60,7 @@ public abstract class Organism implements Serializable {
     protected void MultiplyIfFreePositionIsAround() {
         Position freePosition = world.GetPositionsManager().FindFreePositionAroundThisPosition(organismPosition);
         if(freePosition != null) {
+            MoveBack();
             Multiply(freePosition);
             world.GetEventLoggingManager().ReportAboutNewOrganism(name);
         }
