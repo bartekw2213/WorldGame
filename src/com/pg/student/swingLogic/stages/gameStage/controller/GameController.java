@@ -7,6 +7,7 @@ import com.pg.student.swingLogic.Controller;
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.stages.gameStage.controller.elements.WorldSaver;
 import com.pg.student.swingLogic.stages.gameStage.view.GameView;
+import com.pg.student.swingLogic.stages.gameStage.view.elements.GameField;
 import com.pg.student.swingLogic.stages.gameStage.view.sections.GameSection;
 import com.pg.student.swingLogic.uiElements.MyIconLabel;
 
@@ -41,7 +42,7 @@ public class GameController extends Controller implements KeyListener {
         }
     }
 
-    public void AddNewOrganismToGame(String organismName, GameSection.GameField newOrganismField) {
+    public void AddNewOrganismToGame(String organismName, GameField newOrganismField) {
         gameWorld.GetOrganismsFactory().AddNewOrganismSelectedByUser(organismName, newOrganismField.GetX(),
                 newOrganismField.GetY());
 

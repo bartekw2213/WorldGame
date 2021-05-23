@@ -11,10 +11,10 @@ import javax.swing.*;
 public class OrganismPicker extends JOptionPane {
     private final GameView view;
     private final GameController controller;
-    private final GameSection.GameField organismField;
+    private final GameField organismField;
     private String[] availableOrganisms;
 
-    public OrganismPicker(GameView view, GameController controller, GameSection.GameField organismField) {
+    public OrganismPicker(GameView view, GameController controller, GameField organismField) {
         this.view = view;
         this.controller = controller;
         this.organismField = organismField;

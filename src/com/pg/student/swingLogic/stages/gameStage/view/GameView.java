@@ -3,6 +3,7 @@ package com.pg.student.swingLogic.stages.gameStage.view;
 import com.pg.student.swingLogic.View;
 import com.pg.student.swingLogic.colors.ColorPalette;
 import com.pg.student.swingLogic.stages.gameStage.controller.GameController;
+import com.pg.student.swingLogic.stages.gameStage.view.elements.GameField;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.MyDirChooser;
 import com.pg.student.swingLogic.stages.gameStage.view.elements.OrganismPicker;
 import com.pg.student.swingLogic.stages.gameStage.view.sections.*;
@@ -79,7 +80,7 @@ public class GameView extends View {
         new MyDirChooser((GameController)controller, this);
     }
 
-    public void ShowAnimalPicker(GameSection.GameField newOrganismField) {
+    public void ShowAnimalPicker(GameField newOrganismField) {
         new OrganismPicker(this, (GameController)controller, newOrganismField );
     }
 }
