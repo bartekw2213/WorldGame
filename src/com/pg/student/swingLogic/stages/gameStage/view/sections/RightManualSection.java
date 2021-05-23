@@ -30,7 +30,7 @@ public class RightManualSection extends VerticalSection {
 
     private void AddSaveButton() {
         this.saveButton = new MyButton("Zapisz", (int)(PANEL_WIDTH * 0.75), (int)(PANEL_WIDTH * 0.4),
-                Color.decode(ColorPalette.DARK_GREEN), Color.decode(ColorPalette.YELLOW));
+                Color.decode(ColorPalette.DARK_GREEN), Color.decode(ColorPalette.YELLOW), Font.BOLD, 12);
         this.saveButton.setFocusable(false);
         this.add(this.saveButton);
     }
