@@ -26,10 +26,10 @@ public class WorldSaver {
     }
 
     private File CreateFileToSaveTo(File directory) throws IOException {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd_MM_HH;mm;ss");
         Date date = new Date();
         String fileName = "zapis_gry_" + formatter.format(date);
-        File saveFile = new File(directory.getAbsolutePath() + "/" + fileName);
+        File saveFile = new File(directory.getAbsolutePath() + "\\" + fileName);
 
         if(!saveFile.createNewFile())
             throw new IOException("Plik już istnieje");
