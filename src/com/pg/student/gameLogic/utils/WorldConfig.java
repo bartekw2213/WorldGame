@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class WorldConfig implements Serializable {
     public enum USER_MOVES { UP, DOWN, LEFT, RIGHT, SUPER_POWER }
     public static final double INITIAL_ANIMALS_TO_PLANTS_RATIO = 1.5;
-    public static final int ANIMALS_NUM = 5;
+    public static final int ANIMALS_NUM = 6;
     public static final int PLANTS_NUM = 5;
     public static final int PERCENTAGE_CHANGE_TO_PLANT_MULTIPLY = 10;
 
     public static final int ANTELOPE_POWER = 4;
     public static final int ANTELOPE_INITIATIVE = 4;
+    public static final int CYBER_SHEEP_POWER = 11;
+    public static final int CYBER_SHEEP_INITIATIVE = 4;
     public static final int FOX_POWER = 3;
     public static final int FOX_INITIATIVE = 7;
     public static final int HUMAN_POWER = 5;
@@ -30,6 +32,7 @@ public class WorldConfig implements Serializable {
     public static final int PLANT_INITIATIVE = 0;
 
     public static final String ANTELOPE_NAME = "Antelopa";
+    public static final String CYBER_SHEEP_NAME = "Cyber Owca";
     public static final String FOX_NAME = "Lis";
     public static final String HUMAN_NAME = "Człowiek";
     public static final String SHEEP_NAME = "Owca";
@@ -42,6 +45,7 @@ public class WorldConfig implements Serializable {
     public static final String SONCHUS_NAME = "Mlecz";
 
     public static final String ANTELOPE_IMG_PATH = "src/com/pg/student/images/organisms/antelope.png";
+    public static final String CYBER_SHEEP_IMG_PATH = "src/com/pg/student/images/organisms/cyber-sheep.png";
     public static final String BERRY_IMG_PATH = "src/com/pg/student/images/organisms/berry.png";
     public static final String BORSCH_IMG_PATH = "src/com/pg/student/images/organisms/borsch.png";
     public static final String FOX_IMG_PATH = "src/com/pg/student/images/organisms/fox.png";
