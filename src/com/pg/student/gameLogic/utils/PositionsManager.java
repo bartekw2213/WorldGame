@@ -1,6 +1,7 @@
 package com.pg.student.gameLogic.utils;
 
 import com.pg.student.gameLogic.organisms.Organism;
+import com.pg.student.gameLogic.organisms.plants.Borsch;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -99,6 +100,20 @@ public class PositionsManager implements Serializable {
         }
 
         return foundOrganisms;
+    }
+
+    public Position FindNearestBorschPosition(Position organismPosition) {
+        Borsch nearestBorsch = null;
+        int nearestBorschDistance = -1;
+
+        for(Organism organism : organisms)
+            if(organism instanceof Borsch && (nearestBorschDistance == -1 ||
+                    organism.GetOrganismPosition().GetX() + organism.GetOrganismPosition().GetY() < nearestBorschDistance)) {
+                nearestBorschDistance = organism.GetOrganismPosition().GetX() + organism.GetOrganismPosition().GetY();
+                nearestBorsch = (Borsch) organism;
+            }
+
+        return nearestBorsch == null ? null : nearestBorsch.GetOrganismPosition();
     }
 
     public static class PositionsAroundOnePoint {
