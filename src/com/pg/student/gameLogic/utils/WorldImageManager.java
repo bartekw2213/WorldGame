@@ -16,6 +16,7 @@ public class WorldImageManager implements Serializable {
     PositionsManager positionsManager;
     private final int gameImagesSize;
     private ImageIcon ANTELOPE_IMAGE;
+    private ImageIcon CYBER_SHEEP_IMAGE;
     private ImageIcon FOX_IMAGE;
     private ImageIcon HUMAN_IMAGE;
     private ImageIcon SHEEP_IMAGE;
@@ -52,6 +53,7 @@ public class WorldImageManager implements Serializable {
 
         switch(organismName) {
             case WorldConfig.ANTELOPE_NAME: returnedImage = ANTELOPE_IMAGE; break;
+            case WorldConfig.CYBER_SHEEP_NAME: returnedImage = CYBER_SHEEP_IMAGE; break;
             case WorldConfig.FOX_NAME: returnedImage = FOX_IMAGE; break;
             case WorldConfig.HUMAN_NAME: returnedImage = HUMAN_IMAGE; break;
             case WorldConfig.SHEEP_NAME: returnedImage = SHEEP_IMAGE; break;
@@ -69,6 +71,7 @@ public class WorldImageManager implements Serializable {
 
     private void LoadImages() {
         ANTELOPE_IMAGE = LoadAndResizeImage(WorldConfig.ANTELOPE_IMG_PATH);
+        CYBER_SHEEP_IMAGE = LoadAndResizeImage(WorldConfig.CYBER_SHEEP_IMG_PATH);
         FOX_IMAGE = LoadAndResizeImage(WorldConfig.FOX_IMG_PATH);
         HUMAN_IMAGE = LoadAndResizeImage(WorldConfig.HUMAN_IMG_PATH);
         SHEEP_IMAGE = LoadAndResizeImage(WorldConfig.SHEEP_IMG_PATH);
