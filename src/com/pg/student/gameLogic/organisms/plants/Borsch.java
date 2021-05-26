@@ -20,7 +20,7 @@ public class Borsch extends Plant implements Serializable {
         ArrayList<Organism> organismsAroundBorsch = world.GetPositionsManager().GetOrganismsAroundThisPosition(organismPosition);
 
         for(Organism organism : organismsAroundBorsch)
-            if(organism instanceof Animal) {
+            if(organism instanceof Animal && !(organism instanceof CyberSheep)) {
                 world.GetOrganismsManager().KillOrganism(organism);
                 world.GetEventLoggingManager().ReportDeathAfterFightWith(organism.GetName(), this.GetName());
             }
