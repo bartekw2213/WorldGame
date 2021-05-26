@@ -10,6 +10,7 @@ public class LeftLegendSection extends VerticalSection {
 
     @Override
     protected void AddLabels() {
+        //@TODO zamienic na WorldConfig....
         super.AddLabel("Antelopa", "src/com/pg/student/images/organisms/antelope.png");
         super.AddLabel("Jagody", "src/com/pg/student/images/organisms/berry.png");
         super.AddLabel("Barszcz", "src/com/pg/student/images/organisms/borsch.png");
@@ -21,5 +22,6 @@ public class LeftLegendSection extends VerticalSection {
         super.AddLabel("Mlecz", "src/com/pg/student/images/organisms/sonchus.png");
         super.AddLabel("Żółw", "src/com/pg/student/images/organisms/turtle.png");
         super.AddLabel("Wilk", "src/com/pg/student/images/organisms/wolf.png");
+        super.AddLabel("Cyber Owca", "src/com/pg/student/images/organisms/cyber-sheep.png");
     }
 }
