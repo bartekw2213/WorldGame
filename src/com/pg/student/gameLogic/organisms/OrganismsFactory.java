@@ -27,6 +27,7 @@ public class OrganismsFactory implements Serializable {
             case WorldConfig.ANTELOPE_NAME: allOrganisms.add(new Antelope(position, world)); break;
             case WorldConfig.BERRY_NAME: allOrganisms.add(new Berry(position, world)); break;
             case WorldConfig.BORSCH_NAME: allOrganisms.add(new Borsch(position, world)); break;
+            case WorldConfig.CYBER_SHEEP_NAME: allOrganisms.add(new CyberSheep(position, world)); break;
             case WorldConfig.FOX_NAME: allOrganisms.add(new Fox(position, world)); break;
             case WorldConfig.GRASS_NAME: allOrganisms.add(new Grass(position, world)); break;
             case WorldConfig.GUARANA_NAME: allOrganisms.add(new Guarana(position, world)); break;
@@ -66,6 +67,7 @@ public class OrganismsFactory implements Serializable {
             case 2: createdAnimal = new Sheep(freePosition, world); break;
             case 3: createdAnimal = new Turtle(freePosition, world); break;
             case 4: createdAnimal = new Wolf(freePosition, world); break;
+            case 5: createdAnimal = new CyberSheep(freePosition, world); break;
         }
 
         return createdAnimal;
