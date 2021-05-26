@@ -33,7 +33,8 @@ public class OrganismPicker extends JOptionPane {
 
     private void InitAvailableOrganisms() {
         this.availableOrganisms = new String[] { WorldConfig.ANTELOPE_NAME, WorldConfig.BERRY_NAME,
-            WorldConfig.BORSCH_NAME, WorldConfig.FOX_NAME, WorldConfig.GRASS_NAME, WorldConfig.GUARANA_NAME,
-            WorldConfig.SHEEP_NAME, WorldConfig.SONCHUS_NAME, WorldConfig.TURTLE_NAME, WorldConfig.WOLF_NAME };
+            WorldConfig.BORSCH_NAME, WorldConfig.CYBER_SHEEP_NAME, WorldConfig.FOX_NAME, WorldConfig.GRASS_NAME,
+            WorldConfig.GUARANA_NAME, WorldConfig.SHEEP_NAME, WorldConfig.SONCHUS_NAME, WorldConfig.TURTLE_NAME,
+            WorldConfig.WOLF_NAME };
     }
 }
