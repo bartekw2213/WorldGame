@@ -42,6 +42,12 @@ public class EventLoggingManager implements Serializable {
             events.add(event);
     }
 
+    public void ReportCyberSheepAteBorsch() {
+        String event = "CyberOwca zjadła Barszcz";
+        if(!events.contains(event))
+            events.add(event);
+    }
+
     public void ReportAboutSuperPowerUse() {
         events.add("Całopalenie aktywowane!");
     }
